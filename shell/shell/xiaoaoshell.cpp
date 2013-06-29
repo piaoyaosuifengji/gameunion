@@ -46,7 +46,7 @@ DWORD WINAPI autoAttack(PVOID pvParam)
 		//2：技能释放-
 		res=runShell( countINFact, todo);
 
-
+		//3：判断是否打死了怪
 
 
 
