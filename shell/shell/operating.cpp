@@ -51,7 +51,17 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 			//TcharToChar ( tchar, _char);
 			justDoIt->paramet.p2.c=currentDo->Parameter.GetAt(0);
 		}
-
+		if(currentDo->shelltype.Compare(_T(KeyDown)) ==0)
+		{
+			if(currentDo->ParameterNum != 1)
+				return (-1)*i;
+			justDoIt->funcID=3;
+			justDoIt->paramet.p3.delyTime=currentDo->time;
+			//TCHAR * tchar=currentDo->Parameter.GetAt(1);
+			//char  * _char;
+			//TcharToChar ( tchar, _char);
+			justDoIt->paramet.p3.c=currentDo->Parameter.GetAt(0);
+		}
 
 	}
 
@@ -77,6 +87,9 @@ int runShell(int countINFact,struct dodo *todo)
 			break;
 		case 2:
 			ToInPutChar(justDoIt->paramet.p2.c,justDoIt->paramet.p2.delyTime);
+			break;
+		case 3:
+			PutKeyDown(justDoIt->paramet.p3.c,justDoIt->paramet.p3.delyTime);
 			break;
 		default:break;
 		}
@@ -114,7 +127,29 @@ const int MOUSEEVENTF_ABSOLUTE = 0x8000; 标示是否采用绝对坐标
 
 
 	  }
+	void PutKeyDown(char c,int delyTime)
+	{
 
+		   //为0到9的时候。这是c的值在48到57之间,直接对应
+		   int inputKey=0;
+		   if(c >47 && c<58)
+		   {
+			   inputKey=c;
+		   }
+		   //为a到z的时候。这是c的值在97到122之间,对应VirtualKey的65到90
+		   if(c >96 && c<123)
+		   {
+			   inputKey=c-32;
+		   }
+		   //为A到Z的时候。这是c的值在65到90之间,对应VirtualKey的
+
+		    if(inputKey >0)
+			{
+		  		keybd_event(inputKey,MapVirtualKey(inputKey,0),0,0);//按下inputKey建。关于为何是0x4d---http://msdn.microsoft.com/zh-cn/library/dd375731(v=vs.85)
+				Sleep(delyTime);
+				keybd_event(inputKey,MapVirtualKey(inputKey,0),KEYEVENTF_KEYUP,0);//按下inputKey建。
+			}
+	}
 	  	  void ToInPutChar(char c,int delyTime)
 	  {
 

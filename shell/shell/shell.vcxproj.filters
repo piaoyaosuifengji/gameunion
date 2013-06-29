@@ -51,6 +51,9 @@
     <ClInclude Include="list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="xiaoaoshell.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shell.cpp">
@@ -66,6 +69,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="fileoperating.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xiaoaoshell.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

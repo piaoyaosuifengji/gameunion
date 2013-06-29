@@ -17,7 +17,7 @@
 
 funcParameter1----------void sendALeftMuoseClick(int X,int Y ,int delyTime); ----------
 funcParameter2----------void ToInPutChar(char c,int delyTime);
-
+funcParameter3----------void PutKeyDown(char c,int delyTime);
 
 */
 //funcID=1
@@ -30,13 +30,17 @@ struct funcParameter2//for void ToInPutChar(char c,int delyTime);
 {
 	char c;int delyTime;
 };
-
+//funcID=3
+struct funcParameter3//for void ToInPutChar(char c,int delyTime);
+{
+	char c;int delyTime;
+};
 //¸Ã½á¹¹ÌåÖÐµÄÃ»Ò»¸ö³ÉÔ±±íÊ¾Ò»¸öÌØ¶¨º¯ÊýµÄ²ÎÊýÁÐ±í
 union funcParameter
 	{
 		struct funcParameter1 p1;
 		struct funcParameter2 p2;
-
+		struct funcParameter3 p3;
 	};
 
 
@@ -60,3 +64,4 @@ void sendALeftMuoseClick(int X,int Y ,int delyTime);  //²ÎÊýÎªclickµÄÎ»ÖÃ£¬¼°µã»
 void ToInPutChar(char c,int delyTime);
 int haveToDo(int countINFact,struct operat *p,struct dodo * todo);
 int runShell(int countINFact,struct dodo *todo);
+void PutKeyDown(char c,int delyTime);

@@ -12,7 +12,7 @@ fileoperating::~fileoperating(void)
 }
 
 
-
+//废弃
 void ReadTxtToGetShell()
 {
 	int count=0;
@@ -24,7 +24,12 @@ void ReadTxtToGetShell()
 	{
 		if(count >20)   //读入20个数据就停止
 			break;
+		 WCHAR  fc=str.GetAt(0);
+		 CString firc(fc);
+		 CString cc(_T("#"));
 
+		if(firc.Compare(cc) ==0)
+			 continue;
 		int loct=str.Find(_T(":"));
 		CString x=str.Left(loct);
 		CString y=str.Right(str.GetLength()-loct-1);
@@ -47,7 +52,7 @@ void ReadTxtToGetShell()
       
 
 }
-
+//废弃
 struct list_head * ReadTxtToGetShellByName(CString fileName)
 {
 	struct operat lin;
@@ -140,6 +145,12 @@ int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p)
 	{
 		if(count >20)   //读入20个数据就停止
 			break;
+		 WCHAR  fc=str.GetAt(0);
+		 CString firc(fc);
+		 CString cc(_T("#"));
+
+		if(firc.Compare(cc) ==0)
+			 continue;
 		//提取文本
 		int loct=str.Find(_T(":"));
 		CString shelltype=str.Left(loct);

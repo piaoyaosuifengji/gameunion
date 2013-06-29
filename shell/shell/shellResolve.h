@@ -18,8 +18,11 @@
 2：鼠标操作
 	范例：    LeftMouse:1500:1:198,842,
 	含义：模拟鼠标左键单击等待1.5秒,后面俩个数据就是单击位置的坐标
-
-
+	范例：    LeftMouseDown:1500:1:198,842,
+	含义：模拟鼠标左键单击等待1.5秒,后面俩个数据就是单击位置的坐标
+3:字符按下。包括24个字母，和数字。
+	范例：    KeyDown:1500:1:m
+	含义：表示输入一个字符m按下，并持续保持1.5秒不放开
 const int MOUSEEVENTF_MOVE = 0x0001;      移动鼠标 
 const int MOUSEEVENTF_LEFTDOWN = 0x0002; 模拟鼠标左键按下 
 const int MOUSEEVENTF_LEFTUP = 0x0004; 模拟鼠标左键抬起 
@@ -34,5 +37,8 @@ RIGHT ; 模拟鼠标右键单击
 
 */
 
+#define  LEFTmouseUP   "LeftMouseUP"
+#define  LEFTmouseDOWN   "LeftMouseDown"
 #define  LEFTmouseClick   "LeftMouse"
 #define  InputChar   "char"
+#define  KeyDown   "KeyDown"   //某个键按下，但不放开

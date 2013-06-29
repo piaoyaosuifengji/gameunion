@@ -11,7 +11,7 @@
 #define new DEBUG_NEW
 #endif
 
-
+#include "xiaoaoshell.h"
 
 #include "fileoperating.h"
 #include "operating.h"
@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CshellDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CshellDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -203,4 +204,17 @@ void CshellDlg::OnBnClickedButton1()
 	//  shi=(op->shelltype)+zuobiao1+zuobiao2+(op->Parameter);
 		//AfxMessageBox(zuobiao1)/*;*/
 	delete[] p;
+		delete[] todo;
+}
+
+
+
+
+
+//×Ô¶¯´ò¹Ö
+void CshellDlg::OnBnClickedButton2()
+{
+	DWORD dwTheadID;
+	int x=0;
+	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)&x,0,&dwTheadID);
 }
