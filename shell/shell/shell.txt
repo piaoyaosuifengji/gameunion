@@ -1,0 +1,5 @@
+LeftMouse:1500:2:198,842
+char:500:1:a
+char:500:1:b
+char:500:1:c
+char:500:1:d
