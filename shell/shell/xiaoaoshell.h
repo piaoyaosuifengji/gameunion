@@ -8,6 +8,17 @@ public:
 
 //第一个脚本是自动打怪脚本
 /*
+
+不同的显示器分辨率显然会有不同的坐标
+
+
+你的台式机是1440*900，就是说左上角的坐标是（0.0），右下角的坐标是（1440.900）
+
+
+
+
+
+
 需要实现的功能子集：
 
 1：选怪
@@ -20,3 +31,6 @@ public:
 
 
 DWORD WINAPI autoAttack(PVOID pvParam);
+int ifNeedToNeiLi(CString Environment,CPoint  * ParameterPoints);
+int ifNeedToHuiXue(CString Environment,CPoint  * ParameterPoints);
+void readAndRunShell(CString  littleshellfile);

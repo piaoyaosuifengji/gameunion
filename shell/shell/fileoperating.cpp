@@ -1,6 +1,16 @@
 #include "StdAfx.h"
 #include "fileoperating.h"
 
+    bool ifworkIngProStar=false;
+	CPoint  movePoints[movePointsLength];//记录从文件中获取的坐标值
+	CPoint  movePointsReal[movePointsLength];//此次运行的真实值
+	bool  ZanTing=false;//此值用以控制暂停采集，只要程序不停止运行，那么下次采集将从当前线的下线开始
+	int   OldCaiJiline=15;//配合ZanTing，当ZanTing为true时那么下次就从OldCaiJiline+1开始采集
+    bool ifCaiJiMnegJingHuaCycle=false;//判断是否循环采集梦境花，默认为false--即循环采集
+	                                //在采集陵寝藤是会将其设置为true
+
+
+
 
 fileoperating::fileoperating(void)
 {
@@ -188,3 +198,41 @@ int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p)
 	openfile.Close();										//关闭文件
       return count;
 }
+
+	CPoint  * ReadTxtToGetPoints(CString fileName)
+	{
+		CPoint  *movePointsP;
+		movePointsP=movePoints;
+		int count=0;
+		//CString fileName("D:\\data\\zuobiao.txt");
+		CStdioFile openfile(fileName,CFile::modeRead);				//构造CStdioFile对象
+		CString str;
+		CString zuobiao("");
+		while(openfile.ReadString(str))							//读一行数据
+		{
+			if(count >20)   //读入20个数据就停止
+				break;
+
+		  int loct=str.Find(_T("."));
+		  CString x=str.Left(loct);
+		  CString y=str.Right(str.GetLength()-loct-1);
+
+		  //for()
+
+		  int Y=_wtoi(y);
+
+		  int X=_wtoi(x);
+	    	count++;
+
+			movePoints[count].x=X;  //从movePoints[1]开始记录
+			movePoints[count].y=Y;
+
+	/*	  zuobiao.Format(_T("read zuobiao id %d   %d"),X,Y);
+		  AfxMessageBox(zuobiao);
+*/
+		}
+		openfile.Close();										//关闭文件
+      
+		return movePointsP;
+
+	}

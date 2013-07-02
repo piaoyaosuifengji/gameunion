@@ -16,13 +16,20 @@ struct operat
 	CString  Parameter;
 
 };
+	struct colourRGB
+	{
+		int R;
+		int G;
+		int B;
+	};
+#define movePointsLength   50
 
 
 void ReadTxtToGetShell();
 struct list_head * ReadTxtToGetShellByName(CString fileName);
 int lineCount(CString fileName);
 int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p);
-
+	CPoint  * ReadTxtToGetPoints(CString fileName);
 
 //void CharToTchar (const char * _char, TCHAR * tchar)  
 //{  

@@ -69,6 +69,9 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CshellDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CshellDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CshellDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON4, &CshellDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON5, &CshellDlg::OnBnClickedButton5)
 END_MESSAGE_MAP()
 
 
@@ -215,6 +218,59 @@ void CshellDlg::OnBnClickedButton1()
 void CshellDlg::OnBnClickedButton2()
 {
 	DWORD dwTheadID;
-	int x=0;
-	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)&x,0,&dwTheadID);
+	int x=1;
+	int *p=&x;
+	struct AttackType t;
+	t.type=1;
+	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)x,0,&dwTheadID);
+}
+
+
+void CshellDlg::OnBnClickedButton3()
+{
+		CString  zuobiao1,shi,zuobiao2;
+	zuobiao1.Format(_T("over"));
+		
+CString fileName("D:\\data\\1440900\\zuobiao.txt");
+CPoint  *ParameterPoints=ReadTxtToGetPoints(fileName);
+CString Environment=for1440and900;
+int need=ifNeedToHuiXue( Environment,  ParameterPoints);
+AfxMessageBox(zuobiao1);
+
+	//Sleep(3000);
+	//ToInPutKeyboardKey(VK_F2,200);//默认f2回内力
+}
+
+
+//这个按钮用来运行一些小脚本，在文件littleshell.txt中指定的脚本
+void CshellDlg::OnBnClickedButton4()
+{
+	CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
+	CStdioFile openfile(littleshellfile,CFile::modeRead);				//构造CStdioFile对象
+	CString str;
+	int count=0;
+	if(openfile.ReadString(str))							//读一行数据
+	{
+
+			count++;
+	}
+
+	if(count ==1)
+	{	
+		readAndRunShell(str);
+
+	}
+
+
+
+		
+
+}
+
+//唐门自动打怪
+void CshellDlg::OnBnClickedButton5()
+{
+	DWORD dwTheadID;
+	int x=2;
+	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)x,0,&dwTheadID);
 }

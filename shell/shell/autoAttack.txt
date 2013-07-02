@@ -1,3 +1,4 @@
 #LeftMouse:1500:2:198,842
-char:5000:1:f
-KeyDown:10000:1:0
+char:8000:1:f
+KeyDown:18000:1:0
+KeyDown:4000:1:z

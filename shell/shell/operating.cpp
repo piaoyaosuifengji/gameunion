@@ -5,7 +5,8 @@
 #include "fileoperating.h"
 #include "operating.h"
 
-
+	struct colourRGB colourNow[10];
+	struct colourRGB colourListOld[10];
 
 	//分析struct operat数组，找到需要进行的操作的相关函数
      //当又错误时返回一个负数，就是错误位置在struct operat数组中的序号
@@ -150,7 +151,8 @@ const int MOUSEEVENTF_ABSOLUTE = 0x8000; 标示是否采用绝对坐标
 				keybd_event(inputKey,MapVirtualKey(inputKey,0),KEYEVENTF_KEYUP,0);//按下inputKey建。
 			}
 	}
-	  	  void ToInPutChar(char c,int delyTime)
+//在asicc码向虚拟键码转换时用这个函数
+void ToInPutChar(char c,int delyTime)
 	  {
 
 		   //为0到9的时候。这是c的值在48到57之间,直接对应
@@ -176,14 +178,22 @@ const int MOUSEEVENTF_ABSOLUTE = 0x8000; 标示是否采用绝对坐标
 
 		   //}
 		    
-
-
 		    if(inputKey >0)
 			{
 		  		keybd_event(inputKey,MapVirtualKey(inputKey,0),0,0);//按下inputKey建。关于为何是0x4d---http://msdn.microsoft.com/zh-cn/library/dd375731(v=vs.85)
 				Sleep(100);
 				keybd_event(inputKey,MapVirtualKey(inputKey,0),KEYEVENTF_KEYUP,0);//按下inputKey建。
 			}
+		    Sleep(delyTime);
+	  }
+	//直接输入虚拟键码的
+void ToInPutKeyboardKey(int c,int delyTime)
+	  {
+
+		  		keybd_event(c,MapVirtualKey(c,0),0,0);//按下inputKey建。关于为何是0x4d---http://msdn.microsoft.com/zh-cn/library/dd375731(v=vs.85)
+				Sleep(100);
+				keybd_event(c,MapVirtualKey(c,0),KEYEVENTF_KEYUP,0);//按下inputKey建。
+			
 		    Sleep(delyTime);
 	  }
 /*
@@ -329,3 +339,90 @@ VK_RCONTROL0xA3	Right CONTROL key
 VK_LMENU0xA4	Left MENU key
 VK_RMENU0xA5	Right MENU key
 		  */
+
+	void  standardOutput(CString str)
+	{
+		//CTime t=::GetCurrentTime();
+		//_try
+		//{
+		CString msg("standardOutput :");
+		//msg.Format(_T("%s    %s \t\n"),str,t.Format(_T(" %X")));
+		msg.Format(_T("%s   %s  \t\n"),msg,str);
+		//TRACE(msg);
+		WCHAR fileName[150]=_T("D:\\data\\msg.txt") ;
+		CStdioFile f(fileName,CFile::modeWrite );
+		//TCHAR buf[] = _T("test string \n\t");
+		LONGLONG lOff =  0;
+		ULONGLONG lActual = f.Seek(lOff, CFile::end);
+		 f.WriteString(msg);
+	}
+	//废弃
+void GetCurrentRGB(CPoint pt)//获取当前鼠标位置的像素，保存与全局变量RGB中
+{
+		Sleep(2000);
+
+		DWORD  res=0;
+		HDC hDC;//获取屏幕DC
+	    GetCursorPos(&pt);//得到当前鼠标所在位置
+				
+		int i=0;
+		int satrt=pt.x ;
+		int end=satrt+50;
+		i=satrt;
+		int count=0;
+		while(true)
+		{
+
+			count++;
+		
+			if(count>2)
+			{
+				break;}
+		hDC=::GetDC(NULL);
+		Sleep(200);
+		COLORREF clr = ::GetPixel(hDC,i,pt.y); //获取当前鼠标点像素值
+
+		i=i+5;
+
+
+		CString ClrText("");
+		
+		BYTE r = GetRValue(clr);
+		BYTE g = GetGValue(clr);
+		BYTE b = GetBValue(clr);
+		colourNow[count].R=r;
+		colourNow[count].G=g;
+		colourNow[count].B=b;
+
+
+		ClrText.Format(_T("x=%d correntPoint: %d  %d  RGB  is   %d  %d   %d"),i,pt.x,pt.y,colourNow[count].R,colourNow[count].G,colourNow[count].B); //分解出蓝色值
+		////AfxMessageBox(ClrText);
+		standardOutput(ClrText);
+		
+		::ReleaseDC(NULL, hDC); //释放屏幕DC
+
+		}
+		//return res;
+}
+
+void GetPointRGB(CPoint *pt,struct colourRGB * obColour)//获取指定鼠标位置的像素，保存于obColour
+{
+		//Sleep(2000);
+
+		DWORD  res=0;
+		HDC hDC;//获取屏幕DC
+	    //GetCursorPos(pt);//得到当前鼠标所在位置
+		//SetCursorPos(pt->x,pt->y);		
+
+		hDC=::GetDC(NULL);
+		Sleep(200);
+		COLORREF clr = ::GetPixel(hDC,pt->x,pt->y); //获取当前鼠标点像素值
+		
+		BYTE r = GetRValue(clr);
+		BYTE g = GetGValue(clr);
+		BYTE b = GetBValue(clr);
+		obColour->R=r;
+		obColour->G=g;
+		obColour->B=b;
+		::ReleaseDC(NULL, hDC); //释放屏幕DC
+}

@@ -4,9 +4,10 @@
 
 
 
+//zheli这里定义几个有关显示器分辨率的宏
 
-
-
+#define for1440and900  _T("1440900")
+#define for1280and800  _T("1280800")
 
 
 
@@ -58,10 +59,18 @@ struct dodo
 };
 
 
+struct AttackType
+{
 
+	int type;
+};
 
 void sendALeftMuoseClick(int X,int Y ,int delyTime);  //参数为click的位置，及点击后延迟多少秒
 void ToInPutChar(char c,int delyTime);
 int haveToDo(int countINFact,struct operat *p,struct dodo * todo);
 int runShell(int countINFact,struct dodo *todo);
 void PutKeyDown(char c,int delyTime);
+void GetCurrentRGB(CPoint pt);
+void GetPointRGB(CPoint *pt,struct colourRGB * obColour);
+void  standardOutput(CString str);
+void ToInPutKeyboardKey(int c,int delyTime);
