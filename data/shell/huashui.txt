@@ -1,0 +1,11 @@
+#KeyDown:4000:1:z
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0

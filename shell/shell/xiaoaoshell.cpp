@@ -48,11 +48,27 @@ DWORD WINAPI autoAttack(PVOID pvParam)
 		//int res=runShell( countINFact, todo);
 
 	}
+	int width = GetSystemMetrics ( SM_CXSCREEN ); 
+	int height= GetSystemMetrics ( SM_CYSCREEN ); 
 
 	CString fileName2("D:\\data\\1440900\\zuobiao.txt");
-	CPoint  *ParameterPoints=ReadTxtToGetPoints(fileName2);
+	CPoint  *ParameterPoints;
 	CString Environment=for1440and900;
 
+	if(width == 1440 && height==900)
+	{
+		fileName2.Format(_T("D:\\data\\1440900\\zuobiao.txt"));
+		ParameterPoints=ReadTxtToGetPoints(fileName2);
+		Environment=for1440and900;
+	}
+	else if(width == 1280 && height==800)
+	{
+		fileName2.Format(_T("D:\\data\\1280800\\zuobiao.txt"));
+		ParameterPoints=ReadTxtToGetPoints(fileName2);
+		Environment=for1280and800;
+	}
+	else
+		return res;
 
 	Sleep(4000);
 	char c;
@@ -166,9 +182,78 @@ int ifNeedToNeiLi(CString Environment,CPoint  * ParameterPoints)
 
 			 //SetCursorPos(linPoint.x,linPoint.y);
 
-			 //Sleep(500);
-			 str.Format(_T("x=%d,y=%d,g,b=%d,%d,%d  \n"),linPoint.x,linPoint.y,obColour.R,obColour.G,obColour.B);
-			standardOutput( str);
+			 //h获取改点tgb
+			// str.Format(_T("x=%d,y=%d,g,b=%d,%d,%d  \n"),linPoint.x,linPoint.y,obColour.R,obColour.G,obColour.B);
+			//standardOutput( str);
+
+			if(goodcolour[i].R !=obColour.R || goodcolour[i].G !=obColour.G || goodcolour[i].B !=obColour.B  )
+				badcolour++;
+
+		}
+
+	}
+	if(Environment.Compare(_T("1280800")) == 0)
+	{
+		res=0;
+		//红条的起始位置591.751---407.751
+		//内力条的起始位置689.751---869.751
+
+		//下面截取起始位置的8个点的颜色值
+		//如果前面8个值又4个和预想的（满蓝条状态下的值）不一样，就认为需要回蓝了
+		int i=0;
+		int j=0;
+		CPoint linPoint;
+	    struct colourRGB  obColour;
+		
+
+		struct colourRGB  goodcolour[9];
+		int r=0;
+		int g=1;
+		int b=1;
+		//1
+		goodcolour[j].R=r;
+		goodcolour[j].G=127;
+		goodcolour[j].B=183;
+		j++;//2
+		goodcolour[j].R=0;
+		goodcolour[j].G=106;
+		goodcolour[j].B=160;
+		j++;//3
+		goodcolour[j].R=r;
+		goodcolour[j].G=111;
+		goodcolour[j].B=164;
+		j++;//4
+		goodcolour[j].R=r;
+		goodcolour[j].G=131;
+		goodcolour[j].B=187;
+		j++;//5
+		goodcolour[j].R=r;
+		goodcolour[j].G=111;
+		goodcolour[j].B=165;
+		j++;//6
+		goodcolour[j].R=r;
+		goodcolour[j].G=117;
+		goodcolour[j].B=172;
+		j++;//7
+		goodcolour[j].R=4;
+		goodcolour[j].G=99;
+		goodcolour[j].B=149;
+		j++;//8
+		goodcolour[j].R=22;
+		goodcolour[j].G=97;
+		goodcolour[j].B=142;
+
+		for(;i<8;i++)
+		{
+			/* SetCursorPos(100,92);
+             GetCurrentRGB(oldPoint);*/
+			linPoint.x=ParameterPoints[2].x+20*i;
+			linPoint.y=ParameterPoints[2].y;
+			 GetPointRGB(&linPoint,&obColour);
+			 //SetCursorPos(linPoint.x,linPoint.y);
+
+		/*	 str.Format(_T("x=%d,y=%d,g,b=%d,%d,%d  \n"),linPoint.x,linPoint.y,obColour.R,obColour.G,obColour.B);
+			standardOutput( str);*/
 
 			if(goodcolour[i].R !=obColour.R || goodcolour[i].G !=obColour.G || goodcolour[i].B !=obColour.B  )
 				badcolour++;
@@ -248,6 +333,74 @@ int ifNeedToHuiXue(CString Environment,CPoint  * ParameterPoints)
 
 			//SetCursorPos(linPoint.x,linPoint.y);
 			// Sleep(500);
+			// str.Format(_T("x=%d,y=%d,g,b=%d,%d,%d  \n"),linPoint.x,linPoint.y,obColour.R,obColour.G,obColour.B);
+			//standardOutput( str);
+
+			if(goodcolour[i].R !=obColour.R || goodcolour[i].G !=obColour.G || goodcolour[i].B !=obColour.B  )
+				badcolour++;
+
+		}
+
+	}
+	if(Environment.Compare(_T("1280800")) == 0)
+	{
+		//红条的起始位置591.751---407.751
+		//内力条的起始位置689.751---869.751
+
+		//下面截取起始位置的8个点的颜色值
+		//如果前面8个值又4个和预想的（满蓝条状态下的值）不一样，就认为需要回蓝了
+		int i=0;
+		int j=0;
+		CPoint linPoint;
+	    struct colourRGB  obColour;
+		
+
+		struct colourRGB  goodcolour[9];
+
+		//1
+		goodcolour[j].R=154;
+		goodcolour[j].G=0;
+		goodcolour[j].B=11;
+		j++;//2
+		goodcolour[j].R=146;
+		goodcolour[j].G=0;
+		goodcolour[j].B=16;
+		j++;//3
+		goodcolour[j].R=136;
+		goodcolour[j].G=0;
+		goodcolour[j].B=12;
+		j++;//4
+		goodcolour[j].R=149;
+		goodcolour[j].G=0;
+		goodcolour[j].B=10;
+		j++;//5
+		goodcolour[j].R=149;
+		goodcolour[j].G=0;
+		goodcolour[j].B=15;
+		j++;//6
+		goodcolour[j].R=143;
+		goodcolour[j].G=2;
+		goodcolour[j].B=6;
+		j++;//7
+		goodcolour[j].R=146;
+		goodcolour[j].G=3;
+		goodcolour[j].B=3;
+		j++;//8
+		goodcolour[j].R=144;
+		goodcolour[j].G=0;
+		goodcolour[j].B=3;
+		//linPoint.x=ParameterPoints[2].x;
+		//linPoint.y=ParameterPoints[2].y;
+		for(;i<8;i++)
+		{
+			/* SetCursorPos(100,92);
+             GetCurrentRGB(oldPoint);*/
+			linPoint.x=ParameterPoints[1].x-20*i;
+			linPoint.y=ParameterPoints[1].y;
+			 GetPointRGB(&linPoint,&obColour);
+
+			//SetCursorPos(linPoint.x,linPoint.y);
+			// Sleep(500);
 			 str.Format(_T("x=%d,y=%d,g,b=%d,%d,%d  \n"),linPoint.x,linPoint.y,obColour.R,obColour.G,obColour.B);
 			standardOutput( str);
 
@@ -257,7 +410,6 @@ int ifNeedToHuiXue(CString Environment,CPoint  * ParameterPoints)
 		}
 
 	}
-
 	if(badcolour >2)
 		res=1;
 	return res;

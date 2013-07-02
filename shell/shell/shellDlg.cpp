@@ -228,23 +228,36 @@ void CshellDlg::OnBnClickedButton2()
 
 void CshellDlg::OnBnClickedButton3()
 {
-		CString  zuobiao1,shi,zuobiao2;
-	zuobiao1.Format(_T("over"));
-		
-CString fileName("D:\\data\\1440900\\zuobiao.txt");
-CPoint  *ParameterPoints=ReadTxtToGetPoints(fileName);
-CString Environment=for1440and900;
-int need=ifNeedToHuiXue( Environment,  ParameterPoints);
-AfxMessageBox(zuobiao1);
 
-	//Sleep(3000);
-	//ToInPutKeyboardKey(VK_F2,200);//默认f2回内力
+
+	Sleep(3000);
+	CPoint start, end;
+	start.x=406;
+	start.y=751;
+	end.x=593;
+	end.y=752;
+//struct colourRGB  lin=	CalculateAverageValueRBG( start, end,3);
+
+	int width = GetSystemMetrics ( SM_CXSCREEN ); 
+	int height= GetSystemMetrics ( SM_CYSCREEN ); 
+
+
+
+	 CString file(_T("D:\\data\\1280800\\FindMatrixMsg.txt"));
+	 CPoint startPoint;
+	 struct colourRGB AverageValueRBG;
+	 CPoint LeftPoint, RightPoint;
+	 getMsgForFindMatrix( file,&startPoint,&AverageValueRBG);
+	 int res=FindMatrix(startPoint,AverageValueRBG,& LeftPoint,& RightPoint);
+
+
 }
 
 
 //这个按钮用来运行一些小脚本，在文件littleshell.txt中指定的脚本
 void CshellDlg::OnBnClickedButton4()
 {
+	Sleep(3000);
 	CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
 	CStdioFile openfile(littleshellfile,CFile::modeRead);				//构造CStdioFile对象
 	CString str;
@@ -255,7 +268,7 @@ void CshellDlg::OnBnClickedButton4()
 			count++;
 	}
 
-	if(count ==1)
+	if(count ==1)//e0e0
 	{	
 		readAndRunShell(str);
 

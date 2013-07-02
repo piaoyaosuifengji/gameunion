@@ -171,7 +171,7 @@ void ToInPutChar(char c,int delyTime)
 		   //{
 			  // inputKey=c;
 		   //}
-		   //switch (c)
+		   //switch (c)q
 		   //{
 
 		   //case 
@@ -425,4 +425,159 @@ void GetPointRGB(CPoint *pt,struct colourRGB * obColour)//获取指定鼠标位置的像素
 		obColour->G=g;
 		obColour->B=b;
 		::ReleaseDC(NULL, hDC); //释放屏幕DC
+}
+
+//讲a，b值相加后赋给a
+int addRGB(struct colourRGB *a,struct colourRGB *b)
+{
+	int res=-1;
+	a->B=a->B+b->B;
+		a->R=a->R+b->R;
+			a->G=a->G+b->G;
+	return res;
+}
+//初始化一个rgb
+ int initRGB(struct colourRGB *a)
+{
+	int res=-1;
+
+	if(a)
+	{
+	a->B=0;
+	a->R=0;
+	a->G=0;
+	res=1;
+	}
+
+	return res;
+}
+
+
+
+//给定俩个点，计算出这俩个点为起始的线条的平均rgb值----你可以用这个值：设为K，来判断血条位置
+//Thickness,表示这条线的粗细。就是宽度（单位是像素）
+//这里假设start，end在同一水平线上，就是他们的坐标y相同,或者相差无几
+struct colourRGB  	CalculateAverageValueRBG(CPoint start,CPoint end,int Thickness)
+{
+
+	struct colourRGB res;
+	struct colourRGB AverageValue;
+	initRGB(&AverageValue);
+	res.B=-1;
+	res.G=-1;
+	res.R=-1;
+	//int x=
+	if(Thickness <=0 || start.x<0  || start.y<0  || end.x<0  || end.y<0 || start.x==end.x  )
+		return res;
+	int xOFstart=start.x;
+	int xOFend=end.x;
+	int y=(start.y+end.y)/2;
+	int RGBcount=0;
+	int x=xOFstart;
+	//保证xOFstart值较小
+	if(xOFstart >xOFend)
+	{
+		x=xOFend;
+		xOFend=xOFstart;
+		xOFstart=x;
+	}
+
+		HDC hDC;//获取屏幕DC
+		hDC=::GetDC(NULL);
+		//Sleep(200);
+		COLORREF clr;		
+		BYTE r;
+		BYTE g;
+		BYTE b;
+
+
+	CPoint pt;
+	struct colourRGB obColour;
+	int j=0;
+	for(;x <= xOFend;x++)
+	{
+		pt.x=x;
+		pt.y=y;
+
+		 clr = ::GetPixel(hDC,pt.x,pt.y); //获取当前鼠标点像素值		
+		 r = GetRValue(clr);
+		 g = GetGValue(clr);
+		 b = GetBValue(clr);
+		obColour.R=r;
+		obColour.G=g;
+		obColour.B=b;
+
+		addRGB(&AverageValue,&obColour);
+		RGBcount++;
+		for(j=1;j<=(Thickness/2);j++)
+		{
+			pt.x=x;
+			pt.y=y+(j)*1;
+				 clr = ::GetPixel(hDC,pt.x,pt.y); //获取当前鼠标点像素值		
+				 r = GetRValue(clr);
+				 g = GetGValue(clr);
+				 b = GetBValue(clr);
+				obColour.R=r;
+				obColour.G=g;
+				obColour.B=b;
+			addRGB(&AverageValue,&obColour);
+			RGBcount++;
+
+			pt.x=x;
+			pt.y=y-(j)*1;
+				 clr = ::GetPixel(hDC,pt.x,pt.y); //获取当前鼠标点像素值		
+				 r = GetRValue(clr);
+				 g = GetGValue(clr);
+				 b = GetBValue(clr);
+				obColour.R=r;
+				obColour.G=g;
+				obColour.B=b;
+			addRGB(&AverageValue,&obColour);
+			RGBcount++;
+		}
+
+	}
+	AverageValue.B=AverageValue.B/RGBcount;
+	AverageValue.R=AverageValue.R/RGBcount;
+	AverageValue.G=AverageValue.G/RGBcount;
+
+	::ReleaseDC(NULL, hDC); //释放屏幕DC
+	return AverageValue;
+}
+
+//2：从一个起始位置来寻找与K类似的点，来寻找血条，最好是找到血条的矩形位置
+
+//传入这个起始点，以及K点（就是一个RGB值）
+//输出这个举证的左上角和右下角的坐标
+int FindMatrix(CPoint startPoint,struct colourRGB obColour,CPoint *LeftPoint,CPoint *RightPoint)
+{
+
+	int res=-1;
+
+	
+	//这里会假设startPoint大概是在所找寻位置的左上方
+	//所以这里以从左往右，从上到下的顺序寻找目标rgb
+
+
+
+	return res;
+}
+//FindMatrix的辅助函数，就是获取CPoint *startPoint,struct colourRGB * obColour
+int getMsgForFindMatrix(CString file,CPoint *startPoint,struct colourRGB * AverageValueRBG)
+{
+	int res=0;
+	CPoint  movePointsP[40];
+	//文件的格式如下：虽然是以点的格式保存，但意义不同：
+	//第一行是startPoint，
+	//接下来3行的第一个数则为AverageValueRBG的3个值
+	ReadTxtToGetPointsB( file,movePointsP);
+
+	startPoint->x=movePointsP[1].x;
+	startPoint->y=movePointsP[1].y;
+	AverageValueRBG->R=movePointsP[2].x;
+	AverageValueRBG->G=movePointsP[3].x;
+	AverageValueRBG->B=movePointsP[4].x;
+
+
+	return res;
 }

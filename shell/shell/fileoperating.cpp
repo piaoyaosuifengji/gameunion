@@ -236,3 +236,41 @@ int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p)
 		return movePointsP;
 
 	}
+
+int ReadTxtToGetPointsB(CString fileName,CPoint  *movePointsPp)
+	{
+		CPoint  *movePointsP;
+		movePointsP=movePointsPp;
+		int count=0;
+		//CString fileName("D:\\data\\zuobiao.txt");
+		CStdioFile openfile(fileName,CFile::modeRead);				//构造CStdioFile对象
+		CString str;
+		CString zuobiao("");
+		while(openfile.ReadString(str))							//读一行数据
+		{
+			if(count >20)   //读入20个数据就停止
+				break;
+
+		  int loct=str.Find(_T("."));
+		  CString x=str.Left(loct);
+		  CString y=str.Right(str.GetLength()-loct-1);
+
+		  //for()
+
+		  int Y=_wtoi(y);
+
+		  int X=_wtoi(x);
+	    	count++;
+
+			movePoints[count].x=X;  //从movePoints[1]开始记录
+			movePoints[count].y=Y;
+
+	/*	  zuobiao.Format(_T("read zuobiao id %d   %d"),X,Y);
+		  AfxMessageBox(zuobiao);
+*/
+		}
+		openfile.Close();										//关闭文件
+      
+		return count;
+
+	}

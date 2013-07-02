@@ -30,7 +30,7 @@ struct list_head * ReadTxtToGetShellByName(CString fileName);
 int lineCount(CString fileName);
 int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p);
 	CPoint  * ReadTxtToGetPoints(CString fileName);
-
+	int ReadTxtToGetPointsB(CString fileName,CPoint  *movePointsPp);
 //void CharToTchar (const char * _char, TCHAR * tchar)  
 //{  
 //    int iLength ;  

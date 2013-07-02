@@ -74,3 +74,12 @@ void GetCurrentRGB(CPoint pt);
 void GetPointRGB(CPoint *pt,struct colourRGB * obColour);
 void  standardOutput(CString str);
 void ToInPutKeyboardKey(int c,int delyTime);
+///////////////////////////RGB//////////////////////////////////
+//讲a，b值相加后赋给a
+int addRGB(struct colourRGB *a,struct colourRGB *b);
+//初始化一个rgb
+ int initRGB(struct colourRGB *a);
+ ///////////////////////////RGB//////////////////////////////////
+ struct colourRGB  	CalculateAverageValueRBG(CPoint start,CPoint end,int Thickness);
+ int getMsgForFindMatrix(CString file,CPoint *startPoint,struct colourRGB * AverageValueRBG);
+int FindMatrix(CPoint startPoint,struct colourRGB obColour,CPoint *LeftPoint,CPoint *RightPoint);
