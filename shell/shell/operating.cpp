@@ -63,7 +63,18 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 			//TcharToChar ( tchar, _char);
 			justDoIt->paramet.p3.c=currentDo->Parameter.GetAt(0);
 		}
-
+		if(currentDo->shelltype.Compare(_T(VirtualKey)) ==0)
+		{
+			if(currentDo->ParameterNum != 1)
+				return (-1)*i;
+			justDoIt->funcID=4;
+			justDoIt->paramet.p4.delyTime=currentDo->time;
+			//TCHAR * tchar=currentDo->Parameter.GetAt(1);
+			//char  * _char;
+			//TcharToChar ( tchar, _char);
+						//int Y=_wtoi(y);
+			justDoIt->paramet.p4.c=_wtoi(currentDo->Parameter);
+		}
 	}
 
 	return i;
@@ -92,6 +103,10 @@ int runShell(int countINFact,struct dodo *todo)
 		case 3:
 			PutKeyDown(justDoIt->paramet.p3.c,justDoIt->paramet.p3.delyTime);
 			break;
+		case 4:
+			//PutKeyDown(justDoIt->paramet.p4.c,justDoIt->paramet.p4.delyTime);
+			ToInPutKeyboardKey(justDoIt->paramet.p4.c,justDoIt->paramet.p4.delyTime);
+			break;
 		default:break;
 		}
 
@@ -102,8 +117,11 @@ int runShell(int countINFact,struct dodo *todo)
 
 	  void sendALeftMuoseClick(int X,int Y ,int delyTime)  //参数为click的位置，及点击后延迟多少秒
 	  {
+		  if(X!=0 && Y !=0)
+		  {
 		  SetCursorPos(X,Y);
 		  		    Sleep(400);
+		  }
 			 mouse_event (MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0 );
 		    Sleep(delyTime);
 
@@ -121,8 +139,11 @@ const int MOUSEEVENTF_ABSOLUTE = 0x8000; 标示是否采用绝对坐标
 		  */
 	  void sendARightMuoseClick(int X,int Y ,int delyTime)  //参数为click的位置，及点击后延迟多少秒
 	  {
+		  if(X!=0 && Y !=0)
+		  {
 		  SetCursorPos(X,Y);
 		  		    Sleep(400);
+		  }
 			 mouse_event (MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0 );
 		    Sleep(delyTime);
 

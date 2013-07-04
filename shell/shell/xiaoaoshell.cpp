@@ -27,6 +27,10 @@ DWORD WINAPI autoAttack(PVOID pvParam)
 	{
 		fileName.Format(_T("D:\\data\\shell\\autoAttackfortangmeng.txt"));
 	}
+	else if(autoAttackType == 3)
+	{
+		fileName.Format(_T("D:\\data\\shell\\jiaxue.txt"));
+	}
 	else{		CString  zuobiao1(_T(" wrong autoAttackType"));
 		AfxMessageBox(zuobiao1);
 		return res;
@@ -86,7 +90,15 @@ DWORD WINAPI autoAttack(PVOID pvParam)
 		//选怪
 		c='e';
 		delyTime=500;
-		ToInPutChar( c, delyTime);
+	 if(autoAttackType == 3)
+	{
+		//ToInPutKeyboardKey(VK_F5,500);
+	}
+	 else
+		 //ToInPutChar( c, delyTime);
+		 ToInPutKeyboardKey(9,500);
+
+		
 		//2：技能释放-
 		res=runShell( countINFact, todo);
 

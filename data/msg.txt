@@ -106,3 +106,1241 @@ standardOutput :   x=471,y=751,g,b=146,3,3
   	
 standardOutput :   x=451,y=751,g,b=144,0,3  
   	
+standardOutput :   x=783,y=852,g,b=1,85,131  
+  	
+standardOutput :   x=803,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=823,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=843,y=852,g,b=1,121,173  
+  	
+standardOutput :   x=863,y=852,g,b=1,96,145  
+  	
+standardOutput :   x=883,y=852,g,b=13,14,7  
+  	
+standardOutput :   x=903,y=852,g,b=15,17,7  
+  	
+standardOutput :   x=923,y=852,g,b=15,16,8  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   x=657,y=852,g,b=142,0,10  
+  	
+standardOutput :   x=637,y=852,g,b=133,0,8  
+  	
+standardOutput :   x=617,y=852,g,b=125,0,5  
+  	
+standardOutput :   x=597,y=852,g,b=155,1,7  
+  	
+standardOutput :   x=577,y=852,g,b=150,1,9  
+  	
+standardOutput :   x=557,y=852,g,b=122,3,3  
+  	
+standardOutput :   x=537,y=852,g,b=169,5,3  
+  	
+standardOutput :   x=517,y=852,g,b=134,7,1  
+  	
+standardOutput :   x=783,y=852,g,b=1,85,131  
+  	
+standardOutput :   x=803,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=823,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=843,y=852,g,b=1,121,173  
+  	
+standardOutput :   x=863,y=852,g,b=1,96,145  
+  	
+standardOutput :   x=883,y=852,g,b=1,97,146  
+  	
+standardOutput :   x=903,y=852,g,b=15,17,7  
+  	
+standardOutput :   x=923,y=852,g,b=15,16,8  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   x=657,y=852,g,b=142,0,10  
+  	
+standardOutput :   x=637,y=852,g,b=133,0,8  
+  	
+standardOutput :   x=617,y=852,g,b=125,0,5  
+  	
+standardOutput :   x=597,y=852,g,b=155,1,7  
+  	
+standardOutput :   x=577,y=852,g,b=150,1,9  
+  	
+standardOutput :   x=557,y=852,g,b=122,3,3  
+  	
+standardOutput :   x=537,y=852,g,b=169,5,3  
+  	
+standardOutput :   x=517,y=852,g,b=134,7,1  
+  	
+standardOutput :   x=783,y=852,g,b=1,85,131  
+  	
+standardOutput :   x=803,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=823,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=843,y=852,g,b=1,121,173  
+  	
+standardOutput :   x=863,y=852,g,b=1,96,145  
+  	
+standardOutput :   x=883,y=852,g,b=1,97,146  
+  	
+standardOutput :   x=903,y=852,g,b=16,14,8  
+  	
+standardOutput :   x=923,y=852,g,b=21,17,11  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   x=657,y=852,g,b=142,0,10  
+  	
+standardOutput :   x=637,y=852,g,b=133,0,8  
+  	
+standardOutput :   x=617,y=852,g,b=125,0,5  
+  	
+standardOutput :   x=597,y=852,g,b=155,1,7  
+  	
+standardOutput :   x=577,y=852,g,b=150,1,9  
+  	
+standardOutput :   x=557,y=852,g,b=122,3,3  
+  	
+standardOutput :   x=537,y=852,g,b=169,5,3  
+  	
+standardOutput :   x=517,y=852,g,b=134,7,1  
+  	
+standardOutput :   x=783,y=852,g,b=1,85,131  
+  	
+standardOutput :   x=803,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=823,y=852,g,b=1,93,141  
+  	
+standardOutput :   x=843,y=852,g,b=1,121,173  
+  	
+standardOutput :   x=863,y=852,g,b=1,96,145  
+  	
+standardOutput :   x=883,y=852,g,b=1,97,146  
+  	
+standardOutput :   x=903,y=852,g,b=14,14,6  
+  	
+standardOutput :   x=923,y=852,g,b=12,13,5  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   x=657,y=852,g,b=142,0,10  
+  	
+standardOutput :   x=637,y=852,g,b=133,0,8  
+  	
+standardOutput :   x=617,y=852,g,b=125,0,5  
+  	
+standardOutput :   x=597,y=852,g,b=155,1,7  
+  	
+standardOutput :   x=577,y=852,g,b=150,1,9  
+  	
+standardOutput :   x=557,y=852,g,b=122,3,3  
+  	
+standardOutput :   x=537,y=852,g,b=169,5,3  
+  	
+standardOutput :   x=517,y=852,g,b=134,7,1  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=7  
+  	
+standardOutput :   badcolour=7  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=6  
+  	
+standardOutput :   badcolour=6  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=4  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=6  
+  	
+standardOutput :   badcolour=6  
+  	
+standardOutput :   badcolour=7  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=5  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=0  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=8  
+  	
+standardOutput :   badcolour=3  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=1  
+  	
+standardOutput :   badcolour=2  
+  	
+standardOutput :   badcolour=2  
+  	
