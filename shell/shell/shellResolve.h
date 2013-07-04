@@ -42,5 +42,3 @@ RIGHT ; 模拟鼠标右键单击
 #define  LEFTmouseClick   "LeftMouse"
 #define  InputChar   "char"
 #define  KeyDown   "KeyDown"   //某个键按下，但不放开
-#define  VirtualKey   "VirtualKey"   ////直接输入虚拟键码的,jian见函数void ToInPutKeyboardKey(int c,int delyTime);
-										//这里你在文本文件里面输入的直接是相应的虚拟键码--就是一串数字

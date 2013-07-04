@@ -72,7 +72,6 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON3, &CshellDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON4, &CshellDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CshellDlg::OnBnClickedButton5)
-	ON_BN_CLICKED(IDC_BUTTON6, &CshellDlg::OnBnClickedButton6)
 END_MESSAGE_MAP()
 
 
@@ -232,15 +231,24 @@ void CshellDlg::OnBnClickedButton3()
 
 
 	Sleep(3000);
-	//int width = GetSystemMetrics ( SM_CXSCREEN ); 
-	//int height= GetSystemMetrics ( SM_CYSCREEN ); 
+	CPoint start, end;
+	start.x=406;
+	start.y=751;
+	end.x=593;
+	end.y=752;
+//struct colourRGB  lin=	CalculateAverageValueRBG( start, end,3);
 
-	// CString file(_T("D:\\data\\1280800\\FindMatrixMsg.txt"));
-	// CPoint startPoint;
-	// struct colourRGB AverageValueRBG;
-	// CPoint LeftPoint, RightPoint;
-	// getMsgForFindMatrix( file,&startPoint,&AverageValueRBG);
-	// int res=FindMatrix(startPoint,AverageValueRBG,& LeftPoint,& RightPoint);
+	int width = GetSystemMetrics ( SM_CXSCREEN ); 
+	int height= GetSystemMetrics ( SM_CYSCREEN ); 
+
+
+
+	 CString file(_T("D:\\data\\1280800\\FindMatrixMsg.txt"));
+	 CPoint startPoint;
+	 struct colourRGB AverageValueRBG;
+	 CPoint LeftPoint, RightPoint;
+	 getMsgForFindMatrix( file,&startPoint,&AverageValueRBG);
+	 int res=FindMatrix(startPoint,AverageValueRBG,& LeftPoint,& RightPoint);
 
 
 }
@@ -262,8 +270,7 @@ void CshellDlg::OnBnClickedButton4()
 
 	if(count ==1)//e0e0
 	{	
-		while(count ==1)
-			readAndRunShell(str);
+		readAndRunShell(str);
 
 	}
 
@@ -278,16 +285,5 @@ void CshellDlg::OnBnClickedButton5()
 {
 	DWORD dwTheadID;
 	int x=2;
-	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)x,0,&dwTheadID);
-}
-
-//¶ëÃ¼¼ÓÑªÄ£Ê½
-void CshellDlg::OnBnClickedButton6()
-{
-	DWORD dwTheadID;
-	int x=3;
-	int *p=&x;
-	struct AttackType t;
-	t.type=1;
 	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)x,0,&dwTheadID);
 }

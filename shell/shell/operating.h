@@ -19,7 +19,7 @@
 funcParameter1----------void sendALeftMuoseClick(int X,int Y ,int delyTime); ----------
 funcParameter2----------void ToInPutChar(char c,int delyTime);
 funcParameter3----------void PutKeyDown(char c,int delyTime);
-funcParameter4----------void ToInPutKeyboardKey(int c,int delyTime);
+
 */
 //funcID=1
 struct funcParameter1//for void sendALeftMuoseClick(int X,int Y ,int delyTime);
@@ -36,18 +36,12 @@ struct funcParameter3//for void ToInPutChar(char c,int delyTime);
 {
 	char c;int delyTime;
 };
-//funcID=4
-struct funcParameter4//for void ToInPutChar(char c,int delyTime);
-{
-	int c;int delyTime;
-};
 //该结构体中的没一个成员表示一个特定函数的参数列表
 union funcParameter
 	{
 		struct funcParameter1 p1;
 		struct funcParameter2 p2;
 		struct funcParameter3 p3;
-		struct funcParameter4 p4;
 	};
 
 
