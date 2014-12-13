@@ -143,6 +143,11 @@ int lineCount(CString fileName)
 	}
 	return count;
 }
+/*用法说明 ：
+	文件中"#"  号开头的行忽略
+
+
+*/
 int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p)
 {
 		struct operat newshell;

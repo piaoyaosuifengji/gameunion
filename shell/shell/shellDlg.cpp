@@ -258,7 +258,8 @@ void CshellDlg::OnBnClickedButton3()
 void CshellDlg::OnBnClickedButton4()
 {
 	Sleep(3000);
-	CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
+	//CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
+	CString  littleshellfile(_T("D:\\data\\testTaskShell.txt"));
 	CStdioFile openfile(littleshellfile,CFile::modeRead);				//构造CStdioFile对象
 	CString str;
 	int count=0;
@@ -266,6 +267,15 @@ void CshellDlg::OnBnClickedButton4()
 	{
 
 			count++;
+	}
+	else
+	{
+		CString  zuobiao1;
+		zuobiao1.Format(_T("找不到shell脚本"));
+		//  zuobiao2.Format(_T("ParameterNum=%d"),op->ParameterNum);
+		//  shi=(op->shelltype)+zuobiao1+zuobiao2+(op->Parameter);
+		AfxMessageBox(zuobiao1);
+
 	}
 
 	if(count ==1)//e0e0
