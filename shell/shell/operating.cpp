@@ -8,6 +8,92 @@
 	struct colourRGB colourNow[10];
 	struct colourRGB colourListOld[10];
 
+
+	CString mapNames[] = {
+		_T("洛阳城"),
+		_T("福州城"),
+		_T(","),
+		_T(","),
+		_T(",")
+	};
+	
+	int cityPos[][2] = {
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+	};
+
+
+#define BUFFER_SIZE_KILO    300
+
+
+	// 将Char型字符转换为Unicode字符
+	int CharToUnicode(char *pchIn, CString *pstrOut)
+	{
+		int nLen;
+		WCHAR *ptch;
+
+		if (pchIn == NULL)
+		{
+			return 0;
+		}
+
+		nLen = MultiByteToWideChar(CP_ACP, 0, pchIn, -1, NULL, 0);
+		ptch = new WCHAR[nLen];
+		MultiByteToWideChar(CP_ACP, 0, pchIn, -1, ptch, nLen);
+		pstrOut->Format(_T("%s"), ptch);
+
+		delete[] ptch;
+
+		return nLen;
+	}
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// 将Unicode字符转换为Char型字符
+	int UnicodeToChar(CString &strIn, char *pchOut, int nCharLen)
+	{
+		if (pchOut == NULL)
+		{
+			return 0;
+		}
+
+		int nLen = WideCharToMultiByte(CP_ACP, 0, (LPCWSTR)strIn.GetBuffer(BUFFER_SIZE_KILO), -1, NULL, 0, NULL, NULL);
+		nLen = min(nLen, nCharLen);
+		WideCharToMultiByte(CP_ACP, 0, (LPCWSTR)strIn.GetBuffer(BUFFER_SIZE_KILO), -1, pchOut,
+			nLen, NULL, NULL);
+
+		if (nLen < nCharLen)
+		{
+			pchOut[nLen] = 0;
+		}
+
+
+		return nLen;
+
+
+	}
+	//将char字符串处理一下乱码问题
+	void luanmaChuLi(CString &str)
+	{
+		char *szBuf = new char[str.GetLength()];
+
+		for (int i = 0; i < str.GetLength(); i++)
+		{
+			szBuf[i] = str.GetAt(i);
+		}
+		CharToUnicode(szBuf, &str);
+
+		delete[]szBuf;
+	}
+
+
+
+
+
 	//分析struct operat数组，找到需要进行的操作的相关函数
      //当又错误时返回一个负数，就是错误位置在struct operat数组中的序号
    //返回》0时表示一切正常
@@ -63,10 +149,59 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 			//TcharToChar ( tchar, _char);
 			justDoIt->paramet.p3.c=currentDo->Parameter.GetAt(0);
 		}
+		if (currentDo->shelltype.Compare(_T(Location)) == 0)
+		{
+			if (currentDo->ParameterNum != 3)
+				return (-1)*i;
+			justDoIt->funcID = 4;
+			justDoIt->paramet.p4.delyTime = currentDo->time;
+			//TCHAR * tchar=currentDo->Parameter.GetAt(1);
+			//char  * _char;
+			//TcharToChar ( tchar, _char);
+			//justDoIt->paramet.p4.c = currentDo->Parameter.GetAt(0);
 
+			int loct = currentDo->Parameter.Find(_T(","));
+			CString mapName = currentDo->Parameter.Left(loct);
+			luanmaChuLi(mapName);
+			CString zhong = currentDo->Parameter.Right(currentDo->Parameter.GetLength() - loct - 1);
+			loct = zhong.Find(_T(","));
+			CString x = zhong.Left(loct);
+			CString y = zhong.Right(zhong.GetLength() - loct - 1);
+			int Y = _wtoi(y);
+			int X = _wtoi(x);
+
+			justDoIt->paramet.p4.X = X;
+			justDoIt->paramet.p4.Y = Y;
+			//justDoIt->paramet.p4.
+			int i = 0;
+			int sizeOfMaps = sizeof(mapNames) / sizeof(CString);
+			for (;i<sizeOfMaps;i++)
+			{
+				if (mapNames[i].Compare(mapName) == 0)
+				{
+					break;
+				}
+
+
+			}
+			//根据i值来得到目的地地图的坐标
+			justDoIt->paramet.p4.mapNameID = i;
+
+
+		}
 	}
 
 	return i;
+}
+void locationToMapPos(int mapNameID, int x, int y, int delyTime)//到指定地图的指定位置
+{
+
+
+
+
+
+
+
 }
 
 
@@ -91,6 +226,9 @@ int runShell(int countINFact,struct dodo *todo)
 			break;
 		case 3:
 			PutKeyDown(justDoIt->paramet.p3.c,justDoIt->paramet.p3.delyTime);
+			break;
+		case 4:
+			locationToMapPos(justDoIt->paramet.p4.mapNameID, justDoIt->paramet.p4.X, justDoIt->paramet.p4.Y, justDoIt->paramet.p3.delyTime);
 			break;
 		default:break;
 		}

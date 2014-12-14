@@ -35,10 +35,23 @@ const int MOUSEEVENTF_ABSOLUTE = 0x8000; 标示是否采用绝对坐标
 LEFTmouse ; 模拟鼠标左键单击
 RIGHT ; 模拟鼠标右键单击
 
+
+4：自动寻路。自动定位到指定地图的指定坐标（注意：参数之间用逗号隔开）
+	范例：    location:1500:3:福州城，x，y
 */
+
+/*
+MapName   ID  定义，用于location的字符串地名和ID的转化，
+*/
+
+#define MapNameID_LUOYANG			0		//洛阳城
+#define MapNameID_FUZHOU			1		//福州城
+
+
 
 #define  LEFTmouseUP   "LeftMouseUP"
 #define  LEFTmouseDOWN   "LeftMouseDown"
 #define  LEFTmouseClick   "LeftMouse"
 #define  InputChar   "char"
 #define  KeyDown   "KeyDown"   //某个键按下，但不放开
+#define  Location   "location"

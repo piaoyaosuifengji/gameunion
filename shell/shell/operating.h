@@ -1,7 +1,7 @@
 
 
 #include "StdAfx.h"
-
+#include <afxmt.h>
 
 
 //zheli这里定义几个有关显示器分辨率的宏
@@ -12,13 +12,30 @@
 
 
 /*
+
+脚本使用说明：（shellResolve.h）
+char:1000:1:0
+结构：命令类型：时间：参数个数：参数
+
+
+脚本解析流程：
+	1：读取脚本，并将脚本解析成对面函数命令所需结构struct operat    	ReadTxtToGetShellByName2（）
+	2：将struct operat  转化成最终需要的参数格式 struct dodo            haveToDo( countINFact, p,  todo);
+	2：调用函数运行命令													runShell（）
+
+倒过来，要定义一个新操作的流程为：
+	1：定义操作声明宏：shellResolve.h，，定义操作类型funcParameter？  结构  以及对应的funcID   ，
+	2：将funcParameter？  加入联合体union funcParameter
+	3：定义 对应实现的操作函数
+	4：将新的判断加入函数（haveToDo  ， runShell  这俩个函数）
+
+
 所有的操作类型：
-
-
-
-funcParameter1----------void sendALeftMuoseClick(int X,int Y ,int delyTime); ----------
-funcParameter2----------void ToInPutChar(char c,int delyTime);
-funcParameter3----------void PutKeyDown(char c,int delyTime);
+																							脚本中对面的命令声明
+	funcParameter1----------void sendALeftMuoseClick(int X,int Y ,int delyTime); ---------- LeftMouse
+	funcParameter2----------void ToInPutChar(char c,int delyTime);							char
+	funcParameter3----------void PutKeyDown(char c,int delyTime);							KeyDown
+	funcParameter4----------void locationToMapPos(int mapNameID,int x,int y,int delyTime);							KeyDown
 
 */
 //funcID=1
@@ -36,12 +53,19 @@ struct funcParameter3//for void ToInPutChar(char c,int delyTime);
 {
 	char c;int delyTime;
 };
+//funcID=4
+struct funcParameter4  //for void locationToMapPos()    mapNameID是指定地图的ID号
+{
+	int mapNameID; int X; int Y; int delyTime;
+};
 //该结构体中的没一个成员表示一个特定函数的参数列表
 union funcParameter
 	{
 		struct funcParameter1 p1;
 		struct funcParameter2 p2;
 		struct funcParameter3 p3;
+		
+		struct funcParameter4 p4;
 	};
 
 
@@ -64,7 +88,7 @@ struct AttackType
 
 	int type;
 };
-
+void locationToMapPos(int mapNameID, int x, int y, int delyTime);//到指定地图的指定位置
 void sendALeftMuoseClick(int X,int Y ,int delyTime);  //参数为click的位置，及点击后延迟多少秒
 void ToInPutChar(char c,int delyTime);
 int haveToDo(int countINFact,struct operat *p,struct dodo * todo);
@@ -83,3 +107,5 @@ int addRGB(struct colourRGB *a,struct colourRGB *b);
  struct colourRGB  	CalculateAverageValueRBG(CPoint start,CPoint end,int Thickness);
  int getMsgForFindMatrix(CString file,CPoint *startPoint,struct colourRGB * AverageValueRBG);
 int FindMatrix(CPoint startPoint,struct colourRGB obColour,CPoint *LeftPoint,CPoint *RightPoint);
+
+void luanmaChuLi(CString &str);

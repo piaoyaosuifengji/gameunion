@@ -158,8 +158,8 @@ int ReadTxtToGetShellByName2(CString fileName,int linecount,struct operat *p)
 	//命令类型：命令执行时间：参数个数：参数
 	while(openfile.ReadString(str))							//读一行数据
 	{
-		if(count >20)   //读入20个数据就停止
-			break;
+		//if(count >20)  
+		//	break;
 		 WCHAR  fc=str.GetAt(0);
 		 CString firc(fc);
 		 CString cc(_T("#"));
