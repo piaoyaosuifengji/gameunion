@@ -72,6 +72,7 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON3, &CshellDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON4, &CshellDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CshellDlg::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON6, &CshellDlg::getMousePosAndOutput)
 END_MESSAGE_MAP()
 
 
@@ -296,4 +297,22 @@ void CshellDlg::OnBnClickedButton5()
 	DWORD dwTheadID;
 	int x=2;
 	HANDLE htherad=CreateThread(NULL,0,autoAttack,(PVOID)x,0,&dwTheadID);
+}
+
+
+void CshellDlg::getMousePosAndOutput()
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+
+
+
+
+
+
+
+
+
+
+
 }

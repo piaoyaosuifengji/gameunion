@@ -79,12 +79,13 @@
 	//将char字符串处理一下乱码问题
 	void luanmaChuLi(CString &str)
 	{
-		char *szBuf = new char[str.GetLength()];
+		char *szBuf = new char[str.GetLength()+1];
 
 		for (int i = 0; i < str.GetLength(); i++)
 		{
 			szBuf[i] = str.GetAt(i);
 		}
+		szBuf[str.GetLength()] = 0;
 		CharToUnicode(szBuf, &str);
 
 		delete[]szBuf;
@@ -173,11 +174,11 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 			justDoIt->paramet.p4.X = X;
 			justDoIt->paramet.p4.Y = Y;
 			//justDoIt->paramet.p4.
-			int i = 0;
+			int ii = 0;
 			int sizeOfMaps = sizeof(mapNames) / sizeof(CString);
-			for (;i<sizeOfMaps;i++)
+			for (;ii<sizeOfMaps;ii++)
 			{
-				if (mapNames[i].Compare(mapName) == 0)
+				if (mapNames[ii].Compare(mapName) == 0)
 				{
 					break;
 				}
@@ -185,7 +186,13 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 
 			}
 			//根据i值来得到目的地地图的坐标
-			justDoIt->paramet.p4.mapNameID = i;
+			if (ii < sizeOfMaps)
+			{
+				justDoIt->paramet.p4.mapNameID = ii;//i就是在数组中的下标
+			}
+			else
+				
+				justDoIt->paramet.p4.mapNameID = -1;//i就是在数组中的下标
 
 
 		}
@@ -197,6 +204,51 @@ void locationToMapPos(int mapNameID, int x, int y, int delyTime)//到指定地图的指
 {
 
 
+	//首先读取一些固定的地图数据
+
+	int res = 0;
+	int i;
+	CPoint  movePointsP[400];
+	//文件的格式如下：虽然是以点的格式保存，但意义不同：
+	//第一行是startPoint，
+	//接下来3行的第一个数则为AverageValueRBG的3个值
+	CString file(_T("D:\\data\\1440900\\mapPos.txt"));
+	ReadTxtToGetPointsB(file, movePointsP);
+
+	Sleep(1000);
+	//首先去指定地图
+
+		//按下M
+	ToInPutChar('m',  1260);
+		//打开世界地图
+	i = 1;
+	sendALeftMuoseClick(movePointsP[i].x, movePointsP[i].y, 1250);
+		//点开 mapNameID所指示城市子地图
+	i = mapNameID+2;
+	sendALeftMuoseClick(movePointsP[i].x, movePointsP[i].y, 1250);
+		//qu去指定坐标
+	sendALeftMuoseClick(x, y, delyTime);
+	//关掉地图
+	ToInPutChar('m', 260);
+
+
+
+	//switch (funcID)
+	//{
+	//case 1:
+	//	sendALeftMuoseClick(justDoIt->paramet.p1.X, justDoIt->paramet.p1.Y, justDoIt->paramet.p1.delyTime);
+	//	break;
+	//case 2:
+	//	ToInPutChar(justDoIt->paramet.p2.c, justDoIt->paramet.p2.delyTime);
+	//	break;
+	//case 3:
+	//	PutKeyDown(justDoIt->paramet.p3.c, justDoIt->paramet.p3.delyTime);
+	//	break;
+	//case 4:
+	//	locationToMapPos(justDoIt->paramet.p4.mapNameID, justDoIt->paramet.p4.X, justDoIt->paramet.p4.Y, justDoIt->paramet.p3.delyTime);
+	//	break;
+	//default:break;
+	//}
 
 
 
