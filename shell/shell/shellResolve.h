@@ -55,3 +55,22 @@ MapName   ID  定义，用于location的字符串地名和ID的转化，
 #define  InputChar   "char"
 #define  KeyDown   "KeyDown"   //某个键按下，但不放开
 #define  Location   "location"
+#define  KeyBoardKey   "keyboard"			//直接输入键盘码
+
+
+
+
+
+
+
+
+
+
+
+//任务ID宏,有主任务ID和子任务ID之分，不同的主任务有不同的ID，高4位不同
+//同一个主任务里面可以有不同的子任务，不同的子任务也有相应的ID
+//他们的高4位相同，底四位不同
+//主线任务ID，低四位为0
+#define  TaskId_Mainline_0	  10010000		
+#define  TaskId_Mainline_1	  10010001		//主线任务子任务--进入游戏
+#define  TaskId_Mainline_2	  10010002		//主线任务子任务--接取第一个任务

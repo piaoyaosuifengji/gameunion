@@ -1,5 +1,5 @@
-LeftMouse:1500:2:198,842
-char:500:1:a
-char:500:1:b
-char:500:1:c
-char:500:1:d
+#keyboard:5000:1:192
+keyboard:200:1:109
+char:200:1:8
+char:200:1:f
+char:200:1:-

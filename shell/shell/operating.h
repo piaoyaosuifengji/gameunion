@@ -35,7 +35,8 @@ char:1000:1:0
 	funcParameter1----------void sendALeftMuoseClick(int X,int Y ,int delyTime); ---------- LeftMouse
 	funcParameter2----------void ToInPutChar(char c,int delyTime);							char
 	funcParameter3----------void PutKeyDown(char c,int delyTime);							KeyDown
-	funcParameter4----------void locationToMapPos(int mapNameID,int x,int y,int delyTime);							KeyDown
+	funcParameter4----------void locationToMapPos(int mapNameID,int x,int y,int delyTime);	location
+	funcParameter5----------void ToInPutKeyboardKey(int X,int Y ,int delyTime);	location	keyboardkey
 
 */
 //funcID=1
@@ -49,7 +50,7 @@ struct funcParameter2//for void ToInPutChar(char c,int delyTime);
 	char c;int delyTime;
 };
 //funcID=3
-struct funcParameter3//for void ToInPutChar(char c,int delyTime);
+struct funcParameter3//for void PutKeyDown(char c,int delyTime);
 {
 	char c;int delyTime;
 };
@@ -57,6 +58,11 @@ struct funcParameter3//for void ToInPutChar(char c,int delyTime);
 struct funcParameter4  //for void locationToMapPos()    mapNameID是指定地图的ID号
 {
 	int mapNameID; int X; int Y; int delyTime;
+};
+//funcID=5
+struct funcParameter5  //for void ToInPutKeyboardKey()    
+{
+	char c; int delyTime;
 };
 //该结构体中的没一个成员表示一个特定函数的参数列表
 union funcParameter
@@ -66,6 +72,7 @@ union funcParameter
 		struct funcParameter3 p3;
 		
 		struct funcParameter4 p4;
+		struct funcParameter5 p5;
 	};
 
 
@@ -109,3 +116,18 @@ int addRGB(struct colourRGB *a,struct colourRGB *b);
 int FindMatrix(CPoint startPoint,struct colourRGB obColour,CPoint *LeftPoint,CPoint *RightPoint);
 
 void luanmaChuLi(CString &str);
+
+
+
+//////////////////xiao小任务集合////////////////
+
+//接取任务
+void AccessTask(CPoint * poss);//ca参数为全局位置数组，一些常用位置坐标
+
+
+
+
+
+
+//wu天下无忧任务处理函数
+void tianxiawuyouTaskHandle(void);

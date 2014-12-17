@@ -150,6 +150,28 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 			//TcharToChar ( tchar, _char);
 			justDoIt->paramet.p3.c=currentDo->Parameter.GetAt(0);
 		}
+
+
+		
+		if (currentDo->shelltype.Compare(_T(KeyBoardKey)) == 0)
+		{
+			if (currentDo->ParameterNum != 1)
+				return (-1)*i;
+			justDoIt->funcID = 5;
+			justDoIt->paramet.p5.delyTime = currentDo->time;
+			//TCHAR * tchar=currentDo->Parameter.GetAt(1);
+			//char  * _char;
+			//TcharToChar ( tchar, _char);
+			justDoIt->paramet.p5.c = _ttoi(currentDo->Parameter);
+		}
+
+
+
+
+
+
+
+
 		if (currentDo->shelltype.Compare(_T(Location)) == 0)
 		{
 			if (currentDo->ParameterNum != 3)
@@ -216,7 +238,7 @@ void locationToMapPos(int mapNameID, int x, int y, int delyTime)//到指定地图的指
 	ReadTxtToGetPointsB(file, movePointsP);
 
 	Sleep(1000);
-	//首先去指定地图
+	//首先去指定地图m
 
 		//按下M
 	ToInPutChar('m',  1260);
@@ -228,7 +250,7 @@ void locationToMapPos(int mapNameID, int x, int y, int delyTime)//到指定地图的指
 	sendALeftMuoseClick(movePointsP[i].x, movePointsP[i].y, 1250);
 		//qu去指定坐标
 	sendALeftMuoseClick(x, y, delyTime);
-	//关掉地图
+	//关掉地图m
 	ToInPutChar('m', 260);
 
 
@@ -281,6 +303,9 @@ int runShell(int countINFact,struct dodo *todo)
 			break;
 		case 4:
 			locationToMapPos(justDoIt->paramet.p4.mapNameID, justDoIt->paramet.p4.X, justDoIt->paramet.p4.Y, justDoIt->paramet.p3.delyTime);
+			break;
+		case 5:
+			ToInPutKeyboardKey(justDoIt->paramet.p5.c, justDoIt->paramet.p5.delyTime);
 			break;
 		default:break;
 		}
@@ -770,4 +795,67 @@ int getMsgForFindMatrix(CString file,CPoint *startPoint,struct colourRGB * Avera
 
 
 	return res;
+}
+
+//wu天下无忧任务处理函数
+void tianxiawuyouTaskHandle(void)
+{
+
+
+
+	//CString ClrText("");
+
+	//ClrText.Format(_T("ffffffffffff")); 
+	//AfxMessageBox(ClrText);
+
+
+	//首先读取一些固定的地图数据
+
+	int res = 0;
+	int i;
+	CPoint  movePointsP[400];
+	//文件的格式如下：虽然是以点的格式保存，但意义不同：
+	//第一行是startPoint，
+	//接下来3行的第一个数则为AverageValueRBG的3个值
+	CString file(_T("D:\\data\\1440900\\zuobiao.txt"));
+	ReadTxtToGetPointsB(file, movePointsP);
+
+
+
+
+	//0:第一步到指定接任务位置
+	locationToMapPos(MapNameID_LUOYANG, movePointsP[5].x, movePointsP[5].y, 2200);//到指定地图的指定位置
+	//1:接任务
+	AccessTask(movePointsP);
+
+	//2：判断当前子任务
+		//省略
+
+	//3：调用子任务脚本
+		
+
+	///4：ji交完任务 ，继续流程0
+
+
+
+
+
+}
+
+
+
+//接取任务
+void AccessTask(CPoint * poss)//ca参数为全局位置数组，一些常用位置坐标
+{
+
+	if (poss == NULL)
+		return;
+	sendALeftMuoseClick(poss[3].x, poss[3].y,200);  //参数为click的位置，及点击后延迟多少秒
+
+	sendALeftMuoseClick(poss[4].x, poss[4].y, 200);  //参数为click的位置，及点击后延迟多少秒
+
+
+
+
+
 }

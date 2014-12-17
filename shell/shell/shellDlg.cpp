@@ -12,7 +12,7 @@
 #endif
 
 #include "xiaoaoshell.h"
-
+#include "taskHandle.h"
 #include "fileoperating.h"
 #include "operating.h"
 //extern operat lin;
@@ -73,6 +73,7 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON4, &CshellDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CshellDlg::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CshellDlg::getMousePosAndOutput)
+	ON_BN_CLICKED(IDC_BUTTON7, &CshellDlg::TaskHandleClickedButton)
 END_MESSAGE_MAP()
 
 
@@ -232,26 +233,51 @@ void CshellDlg::OnBnClickedButton3()
 
 
 	Sleep(3000);
-	CPoint start, end;
-	start.x=406;
-	start.y=751;
-	end.x=593;
-	end.y=752;
-//struct colourRGB  lin=	CalculateAverageValueRBG( start, end,3);
+//	CPoint start, end;
+//	start.x=406;
+//	start.y=751;
+//	end.x=593;
+//	end.y=752;
+////struct colourRGB  lin=	CalculateAverageValueRBG( start, end,3);
+//
+//	int width = GetSystemMetrics ( SM_CXSCREEN ); 
+//	int height= GetSystemMetrics ( SM_CYSCREEN ); 
+//
+//
+//
+//	 CString file(_T("D:\\data\\1280800\\FindMatrixMsg.txt"));
+//	 CPoint startPoint;
+//	 struct colourRGB AverageValueRBG;
+//	 CPoint LeftPoint, RightPoint;
+//	 getMsgForFindMatrix( file,&startPoint,&AverageValueRBG);
+//	 int res=FindMatrix(startPoint,AverageValueRBG,& LeftPoint,& RightPoint);
 
-	int width = GetSystemMetrics ( SM_CXSCREEN ); 
-	int height= GetSystemMetrics ( SM_CYSCREEN ); 
 
+	//CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
+	CString  littleshellfile(_T("D:\\data\\testTaskShell.txt"));
+	CStdioFile openfile(littleshellfile, CFile::modeRead);				//构造CStdioFile对象
+	CString str;
+	int count = 0;
+	if (openfile.ReadString(str))							//读一行数据
+	{
 
+		count++;
+	}
+	else
+	{
+		CString  zuobiao1;
+		zuobiao1.Format(_T("找不到shell脚本"));
+		//  zuobiao2.Format(_T("ParameterNum=%d"),op->ParameterNum);
+		//  shi=(op->shelltype)+zuobiao1+zuobiao2+(op->Parameter);
+		AfxMessageBox(zuobiao1);
 
-	 CString file(_T("D:\\data\\1280800\\FindMatrixMsg.txt"));
-	 CPoint startPoint;
-	 struct colourRGB AverageValueRBG;
-	 CPoint LeftPoint, RightPoint;
-	 getMsgForFindMatrix( file,&startPoint,&AverageValueRBG);
-	 int res=FindMatrix(startPoint,AverageValueRBG,& LeftPoint,& RightPoint);
+	}
 
+	if (count == 1)//e0e0
+	{
+		readAndRunShell(str);
 
+	}
 }
 
 
@@ -315,4 +341,17 @@ void CshellDlg::getMousePosAndOutput()
 
 
 
+}
+
+
+void CshellDlg::TaskHandleClickedButton()
+{
+	Sleep(3000);
+	//CString  littleshellfile(_T("D:\\data\\testTaskShell.txt"));
+
+	//调用无忧函数
+	//tianxiawuyouTaskHandle();
+
+	//现在开始做主线任务
+	TaskId_Mainline_Hangdle_fuc(TaskId_Mainline_1);
 }
