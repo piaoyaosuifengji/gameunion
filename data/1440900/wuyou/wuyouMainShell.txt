@@ -1,0 +1,16 @@
+#第一步到接任务位置
+location:5000:3:洛阳城,614,443
+#第二步接任务
+
+
+#KeyDown:4000:1:z
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
+char:1000:1:e
+KeyDown:5000:1:0
