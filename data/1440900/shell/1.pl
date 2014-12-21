@@ -1,5 +1,8 @@
 #创建人物进入游戏shell
 #location:5000:3:洛阳城,614,443
+keyboard: 1200:1:27
+LeftMouse:800:2:496,577
+LeftMouse:800:2:496,577
 
 LeftMouse:1000:2:905,592
 LeftMouse:500:2:456,368

@@ -5,6 +5,12 @@
 #pragma once
 
 
+#include "resource.h"		// main symbols
+#include "HookDll.h"
+class _declspec(dllimport) CKeyHook;
+#pragma comment(lib,"HookDll.lib")
+
+
 // CshellDlg 对话框
 class CshellDlg : public CDialogEx
 {
@@ -17,7 +23,10 @@ public:
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
-
+private:
+	bool  bSetup;
+	CHookDll *m_hook;
+	HINSTANCE glhInstance;
 
 // 实现
 protected:
@@ -37,4 +46,5 @@ public:
 	afx_msg void OnBnClickedButton5();
 	afx_msg void getMousePosAndOutput();
 	afx_msg void TaskHandleClickedButton();
+	afx_msg void OnBnClickedHotKeyRecord();
 };

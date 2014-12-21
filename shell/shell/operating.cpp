@@ -128,6 +128,22 @@ int haveToDo(int countINFact,struct operat * p,struct dodo * todo)
 			justDoIt->paramet.p1.X=X;
 			justDoIt->paramet.p1.Y=Y;
 		}
+		if (currentDo->shelltype.Compare(_T(RightmouseClick)) == 0)
+		{
+			if (currentDo->ParameterNum != 2)
+				return (-1)*i;
+			justDoIt->funcID = 6;
+			justDoIt->paramet.p6.delyTime = currentDo->time;
+
+			int loct = currentDo->Parameter.Find(_T(","));
+			CString x = currentDo->Parameter.Left(loct);
+			CString y = currentDo->Parameter.Right(currentDo->Parameter.GetLength() - loct - 1);
+			int Y = _wtoi(y);
+			int X = _wtoi(x);
+			justDoIt->paramet.p6.X = X;
+			justDoIt->paramet.p6.Y = Y;
+		}
+
 		if(currentDo->shelltype.Compare(_T(InputChar)) ==0)
 		{
 			if(currentDo->ParameterNum != 1)
@@ -307,13 +323,25 @@ int runShell(int countINFact,struct dodo *todo)
 		case 5:
 			ToInPutKeyboardKey(justDoIt->paramet.p5.c, justDoIt->paramet.p5.delyTime);
 			break;
+		case 6:
+			sendRightMuoseClick(justDoIt->paramet.p6.X, justDoIt->paramet.p6.Y, justDoIt->paramet.p6.delyTime);
+			break;
 		default:break;
 		}
 
 	}
 	return res;
 }
+void sendRightMuoseClick(int X, int Y, int delyTime)  //参数为click的位置，及点击后延迟多少秒
+{
+	SetCursorPos(X, Y);
+	Sleep(400);
+	mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+	
+	Sleep(delyTime);
 
+
+}
 
 	  void sendALeftMuoseClick(int X,int Y ,int delyTime)  //参数为click的位置，及点击后延迟多少秒
 	  {

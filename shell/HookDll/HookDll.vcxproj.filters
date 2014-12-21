@@ -7,7 +7,7 @@
     </Filter>
     <Filter Include="头文件">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
@@ -15,21 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
-    <None Include="res\shell.rc2">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="res\shell.ico">
-      <Filter>资源文件</Filter>
-    </None>
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shell.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="shellDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -39,54 +27,29 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="operating.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="shellResolve.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="fileoperating.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="list.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="xiaoaoshell.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="taskHandle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="HookDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="shell.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="shellDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="operating.cpp">
+    <ClCompile Include="HookDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="fileoperating.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="xiaoaoshell.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="taskHandle.cpp">
+    <ClCompile Include="dllmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="shell.rc">
+    <ResourceCompile Include="HookDll.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HookDll.def">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

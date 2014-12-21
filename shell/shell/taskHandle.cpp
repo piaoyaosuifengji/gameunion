@@ -15,17 +15,53 @@ taskHandle::~taskHandle()
 }
 
 
+//#define TaskShellStCreate(id)    ()
+
+
 
 struct  taskMsg   tasksp[] = {
 
 		//{ TaskId_Mainline_0, 0, Shell_Hangle,1 },				//主线任务
-		{ TaskId_Mainline_1, 0, Shell_Hangle,1},				//主线任务--进入游戏
+		{( TaskId_Mainline_1, 0, Shell_Hangle,1)},				//主线任务--进入游戏
 		{ TaskId_Mainline_2, 0, Shell_Hangle, 2 },				//主线任务--接取第一个任务
-
-
-
+		{ TaskId_Mainline_3, 0, Shell_Hangle, 3 },				//主线任务--接取第一个任务
+		{ TaskId_Mainline_4, 0, Shell_Hangle, 4 },				
+		{ TaskId_Mainline_5, 0, Shell_Hangle, 5 },
+		{ TaskId_Mainline_6, 0, Shell_Hangle, 6 },
+		{ TaskId_Mainline_7, 0, Shell_Hangle, 7},
+		{ TaskId_Mainline_8, 0, Shell_Hangle, 8 },
+		{ TaskId_Mainline_9, 0, Shell_Hangle, 9 },
+		{ TaskId_Mainline_10, 0, Shell_Hangle, 10 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_12, 0, Shell_Hangle, 12 },
+		{ TaskId_Mainline_13, 0, Shell_Hangle, 13 },
+		{ TaskId_Mainline_14, 0, Shell_Hangle, 14 },
+		{ TaskId_Mainline_15, 0, Shell_Hangle, 15 },
+		{ TaskId_Mainline_16, 0, Shell_Hangle, 16 },
+		{ TaskId_Mainline_17, 0, Shell_Hangle, 17 },
+		{ TaskId_Mainline_18, 0, Shell_Hangle, 18 },
+		{ TaskId_Mainline_19, 0, Shell_Hangle, 19 },
+		/*		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 },
+		{ TaskId_Mainline_11, 0, Shell_Hangle, 11 }, */
 };
+void SignInTaskFuc()
+{
 
+	CString str;
+	//CString tmp(1);
+	str.Format(_T("D:\\data\\shell\\signINShell.pl")); 
+	readAndRunShell(str);
+
+
+
+
+}
 //参数为已经完成进度，这里就是子任务的id，如从进入游戏开始就是process=TaskId_Mainline_1
 int TaskId_Mainline_Hangdle_fuc(int  process)
 {

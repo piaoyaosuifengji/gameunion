@@ -42,3 +42,4 @@ struct  taskMsg
 
 
 int TaskId_Mainline_Hangdle_fuc(int  process);//参数为已经完成进度，这里就是子任务的id
+void SignInTaskFuc();

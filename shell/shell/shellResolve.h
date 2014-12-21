@@ -51,7 +51,9 @@ MapName   ID  定义，用于location的字符串地名和ID的转化，
 
 #define  LEFTmouseUP   "LeftMouseUP"
 #define  LEFTmouseDOWN   "LeftMouseDown"
+#define  RightmouseDOWN   "RightMouseDown"
 #define  LEFTmouseClick   "LeftMouse"
+#define  RightmouseClick   "RightMouse"
 #define  InputChar   "char"
 #define  KeyDown   "KeyDown"   //某个键按下，但不放开
 #define  Location   "location"
@@ -74,3 +76,20 @@ MapName   ID  定义，用于location的字符串地名和ID的转化，
 #define  TaskId_Mainline_0	  10010000		
 #define  TaskId_Mainline_1	  10010001		//主线任务子任务--进入游戏
 #define  TaskId_Mainline_2	  10010002		//主线任务子任务--接取第一个任务
+#define  TaskId_Mainline_3	  10010003		//主线任务子任务--接取第2个任务
+#define  TaskId_Mainline_4	  10010004		//主线任务子任务--福州城 人靠衣装
+#define  TaskId_Mainline_5	  10010005		//主线任务子任务--福州城 风云起，人挡杀人
+#define  TaskId_Mainline_6	  10010006		//主线任务子任务--剑jiong
+#define  TaskId_Mainline_7	  10010007		//主线任务子任务--风云起，福兮祸兮
+#define  TaskId_Mainline_8	  10010008		//主线任务子任务--风云起，提剑御强敌
+#define  TaskId_Mainline_9	  10010009		//主线任务子任务--风云起决战翻云摊
+#define  TaskId_Mainline_10	  10010010		//主线任务子任务--唐门见血封侯
+#define  TaskId_Mainline_11   10010011		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_12   10010012		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_13   10010013		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_14   10010014		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_15   10010015		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_16   10010016		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_17   10010017		//主线任务子任务--武当受精不争
+#define  TaskId_Mainline_18   10010018		//主线任务子任务--沧海笑，追凶
+#define  TaskId_Mainline_19   10010019		//主线任务子任务--沧海笑，争执

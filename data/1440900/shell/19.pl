@@ -1,16 +1,4 @@
-new  shell::	
-LeftMouse:2000:2:400,882	
-LeftMouse:4000:2:199,769	
-LeftMouse:2000:2:701,886	
-LeftMouse:1000:2:701,886	
-LeftMouse:1000:2:701,886	
-LeftMouse:2000:2:701,886	
-LeftMouse:1000:2:701,886	
-LeftMouse:1000:2:701,886	
-LeftMouse:2000:2:701,886	
-LeftMouse:1000:2:701,886	
-LeftMouse:1000:2:701,886	
-LeftMouse:2000:2:701,886	
+# ²×º£Ð¦£¬ÕùÖ´
 LeftMouse:3000:2:1038,118	
 LeftMouse:3000:2:497,568	
 LeftMouse:2000:2:1062,124	
@@ -97,13 +85,4 @@ LeftMouse:2000:2:493,572
 LeftMouse:3000:2:493,572	
 LeftMouse:6000:2:1099,123	
 LeftMouse:2000:2:494,572	
-LeftMouse:3000:2:494,572	
-LeftMouse:474000:2:701,886	
-LeftMouse:2000:2:709,895	
-LeftMouse:2000:2:709,895	
-LeftMouse:1000:2:709,895	
-LeftMouse:2000:2:709,895	
-LeftMouse:1000:2:709,895	
-LeftMouse:2000:2:709,895	
-LeftMouse:1000:2:709,895	
-LeftMouse:2000:2:593,881	
+LeftMouse:3000:2:494,572

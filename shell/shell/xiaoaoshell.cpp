@@ -422,6 +422,8 @@ void readAndRunShell(CString  littleshellfile)
 	//读取shell文本
 	CString fileName(littleshellfile);
 	int count=lineCount( fileName);
+	if (count <= 0)
+		return;
 	struct operat *p=new struct operat[count];
 	int countINFact=ReadTxtToGetShellByName2(fileName,count,p);
 	//分析命令

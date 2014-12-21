@@ -10,7 +10,9 @@
 
 #include "resource.h"		// 主符号
 
-
+#include "HookDll.h"
+class _declspec(dllimport) CKeyHook;
+#pragma comment(lib,"HookDll.lib")
 // CshellApp:
 // 有关此类的实现，请参阅 shell.cpp
 //

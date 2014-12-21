@@ -37,7 +37,7 @@ char:1000:1:0
 	funcParameter3----------void PutKeyDown(char c,int delyTime);							KeyDown
 	funcParameter4----------void locationToMapPos(int mapNameID,int x,int y,int delyTime);	location
 	funcParameter5----------void ToInPutKeyboardKey(int X,int Y ,int delyTime);	location	keyboardkey
-
+	funcParameter6----------void sendRightMuoseClick(int X,int Y ,int delyTime);			RightMouse
 */
 //funcID=1
 struct funcParameter1//for void sendALeftMuoseClick(int X,int Y ,int delyTime);
@@ -64,6 +64,12 @@ struct funcParameter5  //for void ToInPutKeyboardKey()
 {
 	char c; int delyTime;
 };
+//funcID=6
+struct funcParameter6  //for void sendRightMuoseClick(int X,int Y ,int delyTime);
+{
+	int X; int Y; int delyTime;
+};
+
 //该结构体中的没一个成员表示一个特定函数的参数列表
 union funcParameter
 	{
@@ -73,6 +79,7 @@ union funcParameter
 		
 		struct funcParameter4 p4;
 		struct funcParameter5 p5;
+		struct funcParameter6 p6;
 	};
 
 
@@ -95,6 +102,7 @@ struct AttackType
 
 	int type;
 };
+void sendRightMuoseClick(int X, int Y, int delyTime);
 void locationToMapPos(int mapNameID, int x, int y, int delyTime);//到指定地图的指定位置
 void sendALeftMuoseClick(int X,int Y ,int delyTime);  //参数为click的位置，及点击后延迟多少秒
 void ToInPutChar(char c,int delyTime);

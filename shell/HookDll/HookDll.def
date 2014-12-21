@@ -1,0 +1,6 @@
+; HookDll.def : Declares the module parameters for the DLL.
+
+LIBRARY  "HookDll"
+
+EXPORTS
+	;sharedata	READ WRITE SHARED

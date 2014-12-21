@@ -1,7 +1,7 @@
 
 // shellDlg.cpp : 实现文件
 //
-
+//#include "HookDll.h"
 #include "stdafx.h"
 #include "shell.h"
 #include "shellDlg.h"
@@ -17,7 +17,7 @@
 #include "operating.h"
 //extern operat lin;
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
-
+//#pragma comment(lib,"HookDll.lib")
 class CAboutDlg : public CDialogEx
 {
 public:
@@ -74,6 +74,7 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON5, &CshellDlg::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CshellDlg::getMousePosAndOutput)
 	ON_BN_CLICKED(IDC_BUTTON7, &CshellDlg::TaskHandleClickedButton)
+	ON_BN_CLICKED(IDC_BUTTON8, &CshellDlg::OnBnClickedHotKeyRecord)
 END_MESSAGE_MAP()
 
 
@@ -109,7 +110,10 @@ BOOL CshellDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-
+	// TODO: Add extra initialization here
+	bSetup = false;
+	//CKeyHook *m_hook;
+	glhInstance = LoadLibrary(L"HookDll.dll");
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -162,54 +166,32 @@ HCURSOR CshellDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+bool  bSetup = false;
+CKeyHook *m_hook;
 
+
+HINSTANCE glhInstance = NULL;
 
 void CshellDlg::OnBnClickedButton1()
 {
-	Sleep(3500);
 
-	CString fileName("shell.txt");
-	//int x=198;
-	//int y=842;
-	//sendALeftMuoseClick(x,y,1500);//点击菜单
-	//char c='0';
-	//int i=0;
-	//for(;i<=9;i++)
-	//{
-	//	ToInPutChar(c+i);
-	//}
-
-
-	//读取shell文本
-
-	int count=lineCount( fileName);
-	struct operat *p=new struct operat[count];
-	int countINFact=ReadTxtToGetShellByName2(fileName,count,p);
-
-
-	//分析命令
-	//就是得出该执行的操作，以及相应的参数
-	struct dodo *todo=new struct dodo[countINFact];
-
-	int res=haveToDo( countINFact, p,  todo);
-
-	//最后执行操作
-	if(res >0)
+	if (glhInstance == NULL)
 	{
+		FreeLibrary(glhInstance);
+		AfxMessageBox(_T("fail to load dll in app"));
+		return;
+	}
+	m_hook = new CHookDll;
+	if (m_hook != NULL)
+	{
+		m_hook->setglhInstance(glhInstance);
+		m_hook->Start();//激活全局钩子。
 
-		int res=runShell( countINFact, todo);
-
+		//afxmessagebox(_t("succese to load dll"));
 
 	}
+	else AfxMessageBox(_T("fail to get lei"));
 
-
-	  CString  zuobiao1,shi,zuobiao2;
-	  zuobiao1.Format(_T("time=%d"),count);
-	//  zuobiao2.Format(_T("ParameterNum=%d"),op->ParameterNum);
-	//  shi=(op->shelltype)+zuobiao1+zuobiao2+(op->Parameter);
-		//AfxMessageBox(zuobiao1)/*;*/
-	delete[] p;
-		delete[] todo;
 }
 
 
@@ -353,5 +335,44 @@ void CshellDlg::TaskHandleClickedButton()
 	//tianxiawuyouTaskHandle();
 
 	//现在开始做主线任务
-	TaskId_Mainline_Hangdle_fuc(TaskId_Mainline_1);
+	//TaskId_Mainline_Hangdle_fuc(TaskId_Mainline_4);
+	//TaskId_Mainline_Hangdle_fuc(TaskId_Mainline_2);
+	//TaskId_Mainline_Hangdle_fuc(TaskId_Mainline_3);
+	//TaskId_Mainline_Hangdle_fuc(TaskId_Mainline_5);
+
+
+	CString fileName;
+	fileName.Format(_T("D:\\data\\process.txt"));
+	CStdioFile openfile(fileName, CFile::modeRead);				//构造CStdioFile对象
+	CString str;
+	openfile.ReadString(str);					//读一行数据
+
+	//从文本中读取该执行的shell进度
+
+	//另外第一次进入游戏需要做一些每次进入游戏的操作，如隐藏其他玩家，收取登入奖励
+	SignInTaskFuc();
+	TaskId_Mainline_Hangdle_fuc(int ( _ttoi(str)));
+
+
+
+}
+
+void CshellDlg::OnBnClickedHotKeyRecord()
+{
+	if (glhInstance == NULL)
+	{
+		FreeLibrary(glhInstance);
+		AfxMessageBox(_T("fail to load dll in app"));
+		return;
+	}
+	m_hook = new CHookDll;
+	if (m_hook != NULL)
+	{
+		m_hook->setglhInstance(glhInstance);
+		m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
+
+		//afxmessagebox(_t("succese to load dll"));
+
+	}
+	else AfxMessageBox(_T("fail to get lei"));
 }

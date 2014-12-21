@@ -3,12 +3,12 @@
 #KeyDown:4000:1:z
 #char:1000:1:e
 LeftMouse:1500:2:871,702
-#点掉信息栏
+# # # #点掉信息栏
 LeftMouse:200:2:733,660
 LeftMouse:200:2:733,660
 LeftMouse:200:2:733,660
 LeftMouse:900:2:733,660
-#找到怪物
+# # # #找到怪物
 char:1000:1:m
 LeftMouse:500:2:998,659
 #Backspace
@@ -25,7 +25,7 @@ keyboard:200:1:8
 keyboard:200:1:8
 keyboard:200:1:8
 keyboard:200:1:8
-#输入负号
+# # # #输入负号
 keyboard:200:1:109
 char:200:1:2
 char:200:1:0
@@ -48,8 +48,31 @@ LeftMouse:23500:2:1057,187
 LeftMouse:200:2:733,660
 LeftMouse:200:2:733,660
 LeftMouse:200:2:733,660
-LeftMouse:900:2:733,660
+LeftMouse:1900:2:733,660
 #藏屋子后面
 LeftMouse:8500:2:1061,187
 #按下esc过动画
-#char:1000:1:23
+keyboard:4200:1:27
+#逃离
+LeftMouse:12500:2:1057,198
+LeftMouse:12500:2:1131,184
+LeftMouse:22500:2:1149,186
+#按下esc过动画
+keyboard:21200:1:27
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
