@@ -275,7 +275,7 @@ extern "C" LRESULT WINAPI RecordKeyboardProc(int nCode, WPARAM wParam, LPARAM
 		switch (wParam)
 		{
 		case  VK_LBUTTON:
-		case  VK_RBUTTON://貌似这个函数无法记录鼠标信息
+		case  VK_RBUTTON://这个函数无法记录鼠标信息,无用代码
 			currentVirtualKey = wParam;
 			currentVirtualKeyShellName.Format(_T("LeftMouse"));
 			GetCursorPos(&currentPoint);
@@ -308,7 +308,10 @@ extern "C" LRESULT WINAPI RecordKeyboardProc(int nCode, WPARAM wParam, LPARAM
 		case  VK_F5:
 		case  VK_F6:
 		case  VK_F7:
+			break;
 		case  VK_F9:
+			exit(0);
+			break;
 		case  VK_F10:
 		case  VK_F11:
 		case  VK_F12://注意默认不监视这个键，因为这个设置为监控的结束，当然也可以监控，因为你也可以指定一个按钮
@@ -388,6 +391,8 @@ extern "C" LRESULT WINAPI RecordKeyboardProc(int nCode, WPARAM wParam, LPARAM
 
 		//判断是否可以输出shell脚本
 		//但是按下一个键会调用俩次这个函数，一次down 一次up
+
+		/*调试代码：
 		if (recordTimes >1)
 		{
 			
@@ -405,8 +410,9 @@ extern "C" LRESULT WINAPI RecordKeyboardProc(int nCode, WPARAM wParam, LPARAM
 				//shellStr.Format(_T("%s:%d:%d:%s   %d"), lastVirtualKeyShellName, timeBetweenShell, lastParameterNum, lastParameterStr, tmpi);
 			standardOutput(shellStr);
 			}
-
+			
 		}
+		*/
 	}
 	recordCounts = recordTimes;
 

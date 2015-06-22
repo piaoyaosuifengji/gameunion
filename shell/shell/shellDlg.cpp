@@ -15,6 +15,7 @@
 #include "taskHandle.h"
 #include "fileoperating.h"
 #include "operating.h"
+#include "tianyuShell.h"
 //extern operat lin;
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 //#pragma comment(lib,"HookDll.lib")
@@ -75,6 +76,8 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON6, &CshellDlg::getMousePosAndOutput)
 	ON_BN_CLICKED(IDC_BUTTON7, &CshellDlg::TaskHandleClickedButton)
 	ON_BN_CLICKED(IDC_BUTTON8, &CshellDlg::OnBnClickedHotKeyRecord)
+	ON_BN_CLICKED(IDC_BUTTON9, &CshellDlg::OnBnClickedLingLong)
+	ON_BN_CLICKED(IDC_BUTTON10, &CshellDlg::OnBnClickedButton10)
 END_MESSAGE_MAP()
 
 
@@ -375,4 +378,64 @@ void CshellDlg::OnBnClickedHotKeyRecord()
 
 	}
 	else AfxMessageBox(_T("fail to get lei"));
+}
+
+
+void CshellDlg::OnBnClickedLingLong()//玲珑刷怪
+{
+	// 首先添加按键监听处理：按F9退出程序
+	if (glhInstance == NULL)
+	{
+		FreeLibrary(glhInstance);
+		AfxMessageBox(_T("fail to load dll in app"));
+		return;
+	}
+	m_hook = new CHookDll;
+	if (m_hook != NULL)
+	{
+		m_hook->setglhInstance(glhInstance);
+		m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
+
+		//afxmessagebox(_t("succese to load dll"));
+
+	}
+	else AfxMessageBox(_T("fail to get lei"));
+
+	//
+
+	//运行刷怪脚本：
+	DWORD dwTheadID;
+	int x = 1;
+	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLong, (PVOID)x, 0, &dwTheadID);
+
+
+}
+
+
+void CshellDlg::OnBnClickedButton10()
+{
+	// 首先添加按键监听处理：按F9退出程序
+	if (glhInstance == NULL)
+	{
+		FreeLibrary(glhInstance);
+		AfxMessageBox(_T("fail to load dll in app"));
+		return;
+	}
+	m_hook = new CHookDll;
+	if (m_hook != NULL)
+	{
+		m_hook->setglhInstance(glhInstance);
+		m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
+
+		//afxmessagebox(_t("succese to load dll"));
+
+	}
+	else AfxMessageBox(_T("fail to get lei"));
+
+	//
+
+	//运行刷怪脚本：
+	DWORD dwTheadID;
+	int x = 1;
+	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLongZuDui, (PVOID)x, 0, &dwTheadID);
 }

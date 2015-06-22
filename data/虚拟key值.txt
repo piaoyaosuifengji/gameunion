@@ -55,10 +55,10 @@ VK_SEPARATOR	6C	Separator key
 VK_SUBTRACT	6D	Subtract key
 VK_DECIMAL	6E	Decimal key
 VK_DIVIDE	6F	Divide key
-VK_F1	70	F1 key
+VK_F1	70	F1 key    112
 VK_F2	71	F2 key
 VK_F3	72	F3 key
-VK_F4	73	F4 key
+VK_F4	73	F4 key     115
 VK_F5	74	F5 key
 VK_F6	75	F6 key
 VK_F7	76	F7 key

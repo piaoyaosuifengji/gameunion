@@ -93,3 +93,8 @@ MapName   ID  定义，用于location的字符串地名和ID的转化，
 #define  TaskId_Mainline_17   10010017		//主线任务子任务--武当受精不争
 #define  TaskId_Mainline_18   10010018		//主线任务子任务--沧海笑，追凶
 #define  TaskId_Mainline_19   10010019		//主线任务子任务--沧海笑，争执
+
+
+
+
+#define  TaskId_GeiShiDi_1   20010001		//支线任务任务--领取唐门师弟

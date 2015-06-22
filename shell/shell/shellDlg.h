@@ -47,4 +47,6 @@ public:
 	afx_msg void getMousePosAndOutput();
 	afx_msg void TaskHandleClickedButton();
 	afx_msg void OnBnClickedHotKeyRecord();
+	afx_msg void OnBnClickedLingLong();
+	afx_msg void OnBnClickedButton10();
 };
