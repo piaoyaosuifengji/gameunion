@@ -1,0 +1,13 @@
+#LeftMouse:1500:2:198,842
+#啥时候选择新的小怪很要命：tab切怪
+#keyboard: 500:1:9
+keyboard: 100:1:49
+keyboard: 500:1:50
+keyboard: 100:1:50
+keyboard: 100:1:51
+#keyboard: 500:1:52
+#keyboard: 500:1:51
+keyboard: 100:1:112
+keyboard: 100:1:115
+keyboard: 100:1:53
+keyboard: 100:1:54
