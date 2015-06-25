@@ -23,7 +23,7 @@ class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
-
+	//BOOL CAboutDlg::PreTranslateMessage(MSG* pMsg);////////////自己加的
 // 对话框数据
 	enum { IDD = IDD_ABOUTBOX };
 
@@ -44,13 +44,51 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 }
 
+//
+//BOOL CAboutDlg::PreTranslateMessage(MSG* pMsg)
+//{
+//	// TODO: 在此添加专用代码和/或调用基类
+//	if ((VK_F1 == pMsg->wParam && WM_KEYDOWN == pMsg->message) || (pMsg->message == 77))
+//		return TRUE;
+//	return CDialog::PreTranslateMessage(pMsg);
+//}
+
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
 // CshellDlg 对话框
+LRESULT CshellDlg::OnHotKey(WPARAM wParam, LPARAM lParam) 
+{ // TODO: Add your code here
+	//AfxMessageBox(_T("test"));
+	CString  littleshellfile(_T("C:\\data\\testTaskShell.txt"));
+	CStdioFile openfile(littleshellfile, CFile::modeRead);				//构造CStdioFile对象
+	CString str;
+	int count = 0;
+	if (openfile.ReadString(str))							//读一行数据
+	{
+
+		count++;
+	}
+	else
+	{
+		CString  zuobiao1;
+		zuobiao1.Format(_T("找不到shell脚本"));
+		//  zuobiao2.Format(_T("ParameterNum=%d"),op->ParameterNum);
+		//  shi=(op->shelltype)+zuobiao1+zuobiao2+(op->Parameter);
+		AfxMessageBox(zuobiao1);
+
+	}
+
+	if (count == 1)//e0e0
+	{
+		readAndRunShell(str);
+
+	}
 
 
+	return 0;
+}
 
 
 CshellDlg::CshellDlg(CWnd* pParent /*=NULL*/)
@@ -78,6 +116,8 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON8, &CshellDlg::OnBnClickedHotKeyRecord)
 	ON_BN_CLICKED(IDC_BUTTON9, &CshellDlg::OnBnClickedLingLong)
 	ON_BN_CLICKED(IDC_BUTTON10, &CshellDlg::OnBnClickedButton10)
+	ON_BN_CLICKED(IDC_BUTTON11, &CshellDlg::OnBnClickedButton11)
+	ON_MESSAGE(WM_HOTKEY, OnHotKey)
 END_MESSAGE_MAP()
 
 
@@ -117,6 +157,8 @@ BOOL CshellDlg::OnInitDialog()
 	bSetup = false;
 	//CKeyHook *m_hook;
 	glhInstance = LoadLibrary(L"HookDll.dll");
+	//RegisterHotKey(m_hWnd, 1001, MOD_ALT, VK_F8);//用Alt+f8作为快捷键，第二个参数必须系统唯一
+	RegisterHotKey(m_hWnd, 1001, 0, VK_F2);//用f8作为快捷键，第二个参数必须系统唯一
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -437,5 +479,34 @@ void CshellDlg::OnBnClickedButton10()
 	//运行刷怪脚本：
 	DWORD dwTheadID;
 	int x = 1;
+	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLongZuDui, (PVOID)x, 0, &dwTheadID);
+}
+
+
+void CshellDlg::OnBnClickedButton11()
+{
+	// 首先添加按键监听处理：按F9退出程序
+	if (glhInstance == NULL)
+	{
+		FreeLibrary(glhInstance);
+		AfxMessageBox(_T("fail to load dll in app"));
+		return;
+	}
+	m_hook = new CHookDll;
+	if (m_hook != NULL)
+	{
+		m_hook->setglhInstance(glhInstance);
+		m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
+
+		//afxmessagebox(_t("succese to load dll"));
+
+	}
+	else AfxMessageBox(_T("fail to get lei"));
+
+	//
+
+	//运行刷怪脚本：
+	DWORD dwTheadID;
+	int x = 2;
 	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLongZuDui, (PVOID)x, 0, &dwTheadID);
 }

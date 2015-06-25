@@ -73,7 +73,7 @@ void  standardOutput(CString str)
 	//msg.Format(_T("%s:%s \t\n"), t.Format(_T(" %X")), str );
 	msg.Format(_T("%s\t\n"), str);
 	//TRACE(msg);
-	WCHAR fileName[150] = _T("D:\\data\\msg.txt");
+	WCHAR fileName[150] = _T("C:\\data\\msg.txt");
 	CStdioFile f(fileName, CFile::modeWrite);
 	//TCHAR buf[] = _T("test string \n\t");
 	LONGLONG lOff = 0;
@@ -309,6 +309,11 @@ extern "C" LRESULT WINAPI RecordKeyboardProc(int nCode, WPARAM wParam, LPARAM
 		case  VK_F6:
 		case  VK_F7:
 			break;
+		case  VK_F8:
+			//快速过剧情操作：
+
+
+			break;
 		case  VK_F9:
 			exit(0);
 			break;
@@ -487,27 +492,42 @@ extern "C" LRESULT WINAPI MouseProc(int nCode, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 //记录鼠标信息
+//参数lParam包含了鼠标的位置，其中底位为x坐标，高位为y坐标，这些坐标值都是相对于窗口客户区的左上角的值，wParam中则包含了鼠标按钮的状态.
 extern "C" LRESULT WINAPI RecordMouseProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
 	//if( HC_ACTION != nCode) return 0;
 	//AfxMessageBox(_T("wParam id ")+wParam);
 	int recordTimes ;
+	int outputFlag = 1;
 	int timeBetweenShell;
 	CTimeSpan span;
 	hcuOld = GetCursor();
 	int ii = CursurCount;
-	CString shellStr;
+	CString shellStr,unknowStr;
+
 	recordTimes = recordCounts;
-	if (wParam == WM_LBUTTONUP || wParam == WM_RBUTTONDOWN)
+	//if (  (wParam == WM_LBUTTONUP || wParam == WM_RBUTTONDOWN)    &&  wParam != WM_MOUSEMOVE)
+	if (wParam != WM_MOUSEMOVE)
 	{
 		currentOpTime = CTime::GetCurrentTime();
-
-
 		currentVirtualKey = wParam;
+
 		if (wParam == WM_LBUTTONUP)
 			currentVirtualKeyShellName.Format(_T("LeftMouse"));
 		else if (wParam == WM_RBUTTONDOWN)
 			currentVirtualKeyShellName.Format(_T("RightMouse"));
+		//else if (wParam == 0x20b)
+		//	currentVirtualKeyShellName.Format(_T("first X button"));
+		//else if (wParam == 0x201)
+		//	currentVirtualKeyShellName.Format(_T("second X button"));
+		else
+		{
+			outputFlag = 0;
+			unknowStr.Format(_T("unknowStr:%d"), wParam);
+		}
+			
+	
+		
 
 		GetCursorPos(&currentPoint);
 		currentParameterNum = 2;
@@ -526,7 +546,10 @@ extern "C" LRESULT WINAPI RecordMouseProc(int nCode, WPARAM wParam, LPARAM lPara
 
 					timeBetweenShell = timeBetweenShell * 1000 +1000;
 			shellStr.Format(_T("%s:%d:%d:%s"), lastVirtualKeyShellName, timeBetweenShell, lastParameterNum, lastParameterStr);
-			standardOutput(shellStr);
+			if (outputFlag == 1)
+				standardOutput(shellStr);
+			else
+				standardOutput(unknowStr);
 
 		}
 

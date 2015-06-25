@@ -49,4 +49,25 @@ public:
 	afx_msg void OnBnClickedHotKeyRecord();
 	afx_msg void OnBnClickedLingLong();
 	afx_msg void OnBnClickedButton10();
+	afx_msg void OnBnClickedButton11();
+	afx_msg LRESULT OnHotKey(WPARAM wParam, LPARAM lParam);
 };
+
+/*
+
+
+三、系统级热键：
+
+1.在.h中添加afx_msg LRESULT OnHotKey(WPARAM wParam,LPARAM lParam);
+
+2.在.cpp中添加函数： LRESULT CshellDlg::OnHotKey(WPARAM wParam,LPARAM lParam) { // TODO: Add your code here
+
+return 0; } 在 BEGIN_MESSAGE_MAP 和 END_MESSAGE_MAP 间添加消息映射： ON_MESSAGE(WM_HOTKEY,OnHotKey)
+
+3.在创建/进入程序的时候注册热键： RegisterHotKey(m_hWnd, 1001, MOD_ALT, 0x41);//用Alt+A作为快捷键，第二个参数必须系统唯一
+
+4.在销毁/退出程序的时候注销热键： UnregisterHotKey(m_hWnd,1001);
+
+
+
+*/

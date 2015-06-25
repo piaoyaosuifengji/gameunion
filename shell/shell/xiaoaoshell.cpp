@@ -418,7 +418,7 @@ int ifNeedToHuiXue(CString Environment,CPoint  * ParameterPoints)
 //传入指定的文件名，运行该文件
 void readAndRunShell(CString  littleshellfile)
 {
-	Sleep(3000);
+	//Sleep(3000);
 	//读取shell文本
 	CString fileName(littleshellfile);
 	int count=lineCount( fileName);

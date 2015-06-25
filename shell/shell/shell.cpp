@@ -14,7 +14,7 @@
 // CshellApp
 
 BEGIN_MESSAGE_MAP(CshellApp, CWinApp)
-	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
+	//ON_COMMAND(ID_HELP, &CWinApp::OnHelp)           /*±ªŒ“◊¢ ÕµÙ¡À*/
 END_MESSAGE_MAP()
 
 

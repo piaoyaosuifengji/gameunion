@@ -16,17 +16,17 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 {
 	int res = 0;
 	CString fileName;
-	//标志当前究竟是哪个角色在打。0是未知。1是玲珑，2是其他
+	//标志当前究竟是哪个角色在打。0是未知。1是玲珑，2是DPS
 	struct AttackType *t = (struct AttackType *)pvParam;
 	int autoAttackType = (int)pvParam;
 	//int cccc=(int)autoAttackType;
 	if (autoAttackType == 1)
 	{
-		fileName.Format(_T("D:\\data\\tianyu\\autoAttackLingLongZuDui.txt"));
+		fileName.Format(_T("C:\\data\\tianyu\\autoAttackLingLongZuDui.txt"));
 	}
 	else if (autoAttackType == 2)
 	{
-		//fileName.Format(_T("D:\\data\\shell\\autoAttackfortangmeng.txt"));
+		fileName.Format(_T("C:\\data\\tianyu\\autoAttackforDPS.txt"));
 	}
 	else{
 		CString  zuobiao1(_T(" wrong autoAttackType"));
@@ -53,24 +53,24 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 	int width = GetSystemMetrics(SM_CXSCREEN);
 	int height = GetSystemMetrics(SM_CYSCREEN);
 
-	CString fileName2("D:\\data\\1440900\\zuobiao.txt");
+	CString fileName2("C:\\data\\1440900\\zuobiao.txt");
 	CPoint  *ParameterPoints;
 	CString Environment = for1440and900;
 
 	if (width == 1440 && height == 900)
 	{
-		fileName2.Format(_T("D:\\data\\1440900\\zuobiao.txt"));
+		fileName2.Format(_T("C:\\data\\1440900\\zuobiao.txt"));
 		ParameterPoints = ReadTxtToGetPoints(fileName2);
 		Environment = for1440and900;
 	}
 	else if (width == 1280 && height == 800)
 	{
-		fileName2.Format(_T("D:\\data\\1280800\\zuobiao.txt"));
+		fileName2.Format(_T("C:\\data\\1280800\\zuobiao.txt"));
 		ParameterPoints = ReadTxtToGetPoints(fileName2);
 		Environment = for1280and800;
 	}
-	else
-		return res;
+	//else
+	//	return res;
 
 	Sleep(4000);
 	char c;
@@ -140,7 +140,7 @@ DWORD WINAPI autoAttack_LingLong(PVOID pvParam)
 	//int cccc=(int)autoAttackType;
 	if (autoAttackType == 1)
 	{
-		fileName.Format(_T("D:\\data\\tianyu\\autoAttack.txt"));
+		fileName.Format(_T("C:\\data\\tianyu\\autoAttack.txt"));
 	}
 	else if (autoAttackType == 2)
 	{
@@ -171,24 +171,24 @@ DWORD WINAPI autoAttack_LingLong(PVOID pvParam)
 	int width = GetSystemMetrics(SM_CXSCREEN);
 	int height = GetSystemMetrics(SM_CYSCREEN);
 
-	CString fileName2("D:\\data\\1440900\\zuobiao.txt");
+	CString fileName2("C:\\data\\1440900\\zuobiao.txt");
 	CPoint  *ParameterPoints;
 	CString Environment = for1440and900;
 
 	if (width == 1440 && height == 900)
 	{
-		fileName2.Format(_T("D:\\data\\1440900\\zuobiao.txt"));
+		fileName2.Format(_T("C:\\data\\1440900\\zuobiao.txt"));
 		ParameterPoints = ReadTxtToGetPoints(fileName2);
 		Environment = for1440and900;
 	}
 	else if (width == 1280 && height == 800)
 	{
-		fileName2.Format(_T("D:\\data\\1280800\\zuobiao.txt"));
+		fileName2.Format(_T("C:\\data\\1280800\\zuobiao.txt"));
 		ParameterPoints = ReadTxtToGetPoints(fileName2);
 		Environment = for1280and800;
 	}
-	else
-		return res;
+	//else
+	//	return res;
 
 	Sleep(4000);
 	char c;
