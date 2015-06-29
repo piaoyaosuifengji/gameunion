@@ -64,6 +64,7 @@ LRESULT CshellDlg::OnHotKey(WPARAM wParam, LPARAM lParam)
 	CString  littleshellfile(_T("C:\\data\\testTaskShell.txt"));
 	CStdioFile openfile(littleshellfile, CFile::modeRead);				//构造CStdioFile对象
 	CString str;
+	int keyID;
 	int count = 0;
 	if (openfile.ReadString(str))							//读一行数据
 	{
@@ -79,12 +80,79 @@ LRESULT CshellDlg::OnHotKey(WPARAM wParam, LPARAM lParam)
 		AfxMessageBox(zuobiao1);
 
 	}
-
-	if (count == 1)//e0e0
+	//我擦，在这个函数里面lParam的高位才是实际的按键ID
+	keyID = lParam >> 16;
+	if (keyID == VK_F2)
 	{
-		readAndRunShell(str);
+		if (count == 1)//e0e0
+		{
+			readAndRunShell(str);
+
+		}
 
 	}
+	else if (keyID == VK_F3)
+	{
+		CString  zuobiao1;
+		//zuobiao1.Format(_T("f3"));
+		//AfxMessageBox(zuobiao1);
+		HWND hWnd; // hWnd : 该视窗的 handle
+		DWORD dwx; // dwx : 为存放内 ProcessID 的变数位址
+		HANDLE hProc; //Process handle
+		CRect rect;
+		hWnd = ::FindWindow(_T("NETEASE-TY-APP"), NULL);
+		//lpszClassName:窗口类名，lpszWindowName:窗口标题。两个要一个就可以了，当然两个更准确
+		zuobiao1.Format(_T("找不到窗口"));
+		if (hWnd == false)
+		{
+
+			AfxMessageBox(zuobiao1);
+			return  0;
+		}
+		::GetWindowThreadProcessId(hWnd, &dwx);
+
+
+		CString str;
+		TCHAR Title[100];
+		int ret = 0;
+		::GetWindowText(hWnd, Title, sizeof(Title));
+		//ret = CompareText(title, IETitle);
+		str.Format(_T("%s"), Title);
+		//AfxMessageBox(str);
+
+		//如果你想要得到句柄的那个窗口就是当前活动窗口的话，那就用GetActiveWindow()
+		//该函数获取窗口客户区的坐标。客户区坐标指定客户区的左上角和右下角。由于客户区坐标是相对窗口客户区的左上角而言的，因此左上角坐标为（0，0）
+		//::GetClientRect(hWnd, &rect);//以窗口左上角位原点
+		::GetWindowRect(hWnd, &rect);
+		//GetWindowRect获取的区域要比GetClientRect获取的区域大，因为包含了标题栏的区域。
+		//str.Format(_T("宽度：%d,高度:%d,左上角:%d.%d,右下角：%d.%d"), rect.Width(), rect.Height(), rect.TopLeft().x, rect.TopLeft().y, rect.BottomRight().x, rect.BottomRight().y);
+		//AfxMessageBox(str);
+
+
+
+		// 呼叫 GetWindowThreadProcessID 这个 Win32 API 来取得 ProcessID
+		// 正常执行无误後,会将 Process ID 存入 dwx 这个位址中
+		zuobiao1.Format(_T("找不到ProcessID"));
+		hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwx);
+		if (hProc == false) return  0;
+
+
+		HWND hwndAfter = NULL;
+		while (hwndAfter = ::FindWindowEx(hWnd, hwndAfter, NULL, NULL))
+		{
+			//memset(szText, 0, 256);
+			//::SendMessage(hwndAfter, WM_GETTEXT, (WPARAM)256, (LPARAM)szText);
+			//printf("%s\t", szText);
+			//myEnumWindow(hwndAfter);
+			//zuobiao1.Format(_T("找到控件ID：%d"), );
+			TCHAR szBuf[280];
+			memset(szBuf, 0, sizeof(str));
+			::GetWindowText(hWnd, szBuf, sizeof(str));
+		}
+	}
+
+
+
 
 
 	return 0;
@@ -159,6 +227,7 @@ BOOL CshellDlg::OnInitDialog()
 	glhInstance = LoadLibrary(L"HookDll.dll");
 	//RegisterHotKey(m_hWnd, 1001, MOD_ALT, VK_F8);//用Alt+f8作为快捷键，第二个参数必须系统唯一
 	RegisterHotKey(m_hWnd, 1001, 0, VK_F2);//用f8作为快捷键，第二个参数必须系统唯一
+	RegisterHotKey(m_hWnd, 1002, 0, VK_F3);//用f8作为快捷键，第二个参数必须系统唯一
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -258,8 +327,9 @@ void CshellDlg::OnBnClickedButton2()
 void CshellDlg::OnBnClickedButton3()
 {
 
+	CString  zuobiao1;
 
-	Sleep(3000);
+	//Sleep(3000);
 //	CPoint start, end;
 //	start.x=406;
 //	start.y=751;
@@ -280,31 +350,67 @@ void CshellDlg::OnBnClickedButton3()
 //	 int res=FindMatrix(startPoint,AverageValueRBG,& LeftPoint,& RightPoint);
 
 
-	//CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
-	CString  littleshellfile(_T("D:\\data\\testTaskShell.txt"));
-	CStdioFile openfile(littleshellfile, CFile::modeRead);				//构造CStdioFile对象
-	CString str;
-	int count = 0;
-	if (openfile.ReadString(str))							//读一行数据
+
+
+	//查找窗口中的控件ID，用FindWindowEx
+	
+	
+		HWND hWnd; // hWnd : 该视窗的 handle
+	DWORD dwx; // dwx : 为存放内 ProcessID 的变数位址
+	HANDLE hProc; //Process handle
+	CRect rect;
+	hWnd = ::FindWindow(_T("NETEASE-TY-APP"), NULL);
+	//lpszClassName:窗口类名，lpszWindowName:窗口标题。两个要一个就可以了，当然两个更准确
+	zuobiao1.Format(_T("找不到窗口"));
+	if (hWnd == false)
 	{
 
-		count++;
-	}
-	else
-	{
-		CString  zuobiao1;
-		zuobiao1.Format(_T("找不到shell脚本"));
-		//  zuobiao2.Format(_T("ParameterNum=%d"),op->ParameterNum);
-		//  shi=(op->shelltype)+zuobiao1+zuobiao2+(op->Parameter);
 		AfxMessageBox(zuobiao1);
-
+		return;
 	}
+	::GetWindowThreadProcessId(hWnd, &dwx);
 
-	if (count == 1)//e0e0
+
+	CString str;
+	TCHAR Title[100];
+	int ret = 0;
+	::GetWindowText(hWnd, Title, sizeof(Title));
+	//ret = CompareText(title, IETitle);
+	str.Format(_T("%s"), Title);
+	//AfxMessageBox(str);
+
+	//如果你想要得到句柄的那个窗口就是当前活动窗口的话，那就用GetActiveWindow()
+	//该函数获取窗口客户区的坐标。客户区坐标指定客户区的左上角和右下角。由于客户区坐标是相对窗口客户区的左上角而言的，因此左上角坐标为（0，0）
+	//::GetClientRect(hWnd, &rect);//以窗口左上角位原点
+	::GetWindowRect(hWnd, &rect);
+	//GetWindowRect获取的区域要比GetClientRect获取的区域大，因为包含了标题栏的区域。
+	//str.Format(_T("宽度：%d,高度:%d,左上角:%d.%d,右下角：%d.%d"), rect.Width(), rect.Height(), rect.TopLeft().x, rect.TopLeft().y, rect.BottomRight().x, rect.BottomRight().y);
+	//AfxMessageBox(str);
+	
+	
+
+	// 呼叫 GetWindowThreadProcessID 这个 Win32 API 来取得 ProcessID
+	// 正常执行无误後,会将 Process ID 存入 dwx 这个位址中
+	zuobiao1.Format(_T("找不到ProcessID"));
+	hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwx);
+	if (hProc == false) return ;
+
+
+	HWND hwndAfter = NULL;
+	while (hwndAfter = ::FindWindowEx(hWnd, hwndAfter, NULL, NULL))
 	{
-		readAndRunShell(str);
-
+		//memset(szText, 0, 256);
+		//::SendMessage(hwndAfter, WM_GETTEXT, (WPARAM)256, (LPARAM)szText);
+		//printf("%s\t", szText);
+		//myEnumWindow(hwndAfter);
+		//zuobiao1.Format(_T("找到控件ID：%d"),);
 	}
+
+
+
+	// 呼叫 OpenProcess 这个 Win32 API 来取得 Process handle
+	// 正常执行无误後,会将 Process handle 存入 hProc
+
 }
 
 
@@ -313,7 +419,7 @@ void CshellDlg::OnBnClickedButton4()
 {
 	Sleep(3000);
 	//CString  littleshellfile(_T("D:\\data\\littleshell.txt"));
-	CString  littleshellfile(_T("D:\\data\\testTaskShell.txt"));
+	CString  littleshellfile(_T("C:\\data\\testTaskShell.txt"));
 	CStdioFile openfile(littleshellfile,CFile::modeRead);				//构造CStdioFile对象
 	CString str;
 	int count=0;
@@ -466,8 +572,8 @@ void CshellDlg::OnBnClickedButton10()
 	m_hook = new CHookDll;
 	if (m_hook != NULL)
 	{
-		m_hook->setglhInstance(glhInstance);
-		m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
+		//m_hook->setglhInstance(glhInstance);
+		//m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
 
 		//afxmessagebox(_t("succese to load dll"));
 
@@ -495,10 +601,8 @@ void CshellDlg::OnBnClickedButton11()
 	m_hook = new CHookDll;
 	if (m_hook != NULL)
 	{
-		m_hook->setglhInstance(glhInstance);
-		m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
-
-		//afxmessagebox(_t("succese to load dll"));
+		//m_hook->setglhInstance(glhInstance);
+		//m_hook->RecordMouseAndKeyboard();//激活全局钩子。kaishi开始记录按键
 
 	}
 	else AfxMessageBox(_T("fail to get lei"));

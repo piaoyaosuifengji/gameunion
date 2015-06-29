@@ -22,7 +22,7 @@ struct operat
 		int G;
 		int B;
 	};
-#define movePointsLength   50
+#define movePointsLength   80
 
 
 void ReadTxtToGetShell();

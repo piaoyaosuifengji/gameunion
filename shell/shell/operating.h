@@ -8,8 +8,8 @@
 
 #define for1440and900  _T("1440900")
 #define for1280and800  _T("1280800")
-
-
+#define for800and600  _T("800600")
+#define for1280and720  _T("1280720")
 
 /*
 
@@ -124,6 +124,20 @@ int addRGB(struct colourRGB *a,struct colourRGB *b);
 int FindMatrix(CPoint startPoint,struct colourRGB obColour,CPoint *LeftPoint,CPoint *RightPoint);
 
 void luanmaChuLi(CString &str);
+
+//获取游戏窗口信息
+struct WindowPosMsg
+{
+
+	CPoint  TopLeftPoint;//左上角
+	CPoint  BottomRightPoint;
+	int		Width;
+	int  	Height;
+
+};
+struct WindowPosMsg  getGameWindowSize(LPCTSTR   windowClassName,   LPCTSTR   windowTitle);
+
+
 
 
 

@@ -10,8 +10,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shell", "shell\shell.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HookDll", "HookDll\HookDll.vcxproj", "{EEF5D6FF-8D46-45EA-BE7D-F09AF7AB1C00}"
 EndProject
-Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup1", "Setup1\Setup1.isproj", "{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Win32 = CD_ROM|Win32
@@ -43,16 +41,6 @@ Global
 		{EEF5D6FF-8D46-45EA-BE7D-F09AF7AB1C00}.Release|Win32.Deploy.0 = Release|Win32
 		{EEF5D6FF-8D46-45EA-BE7D-F09AF7AB1C00}.SingleImage|Win32.ActiveCfg = Release|Win32
 		{EEF5D6FF-8D46-45EA-BE7D-F09AF7AB1C00}.SingleImage|Win32.Build.0 = Release|Win32
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.CD_ROM|Win32.ActiveCfg = CD_ROM
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.CD_ROM|Win32.Build.0 = CD_ROM
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.Debug|Win32.ActiveCfg = DVD-5
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.Debug|Win32.Build.0 = DVD-5
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.DVD-5|Win32.ActiveCfg = DVD-5
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.DVD-5|Win32.Build.0 = DVD-5
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.Release|Win32.ActiveCfg = SingleImage
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.Release|Win32.Build.0 = SingleImage
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.SingleImage|Win32.ActiveCfg = SingleImage
-		{6AAB3E39-DC67-4102-8C2E-B0D54B0048BF}.SingleImage|Win32.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

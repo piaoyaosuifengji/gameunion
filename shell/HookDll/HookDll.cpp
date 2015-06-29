@@ -315,7 +315,7 @@ extern "C" LRESULT WINAPI RecordKeyboardProc(int nCode, WPARAM wParam, LPARAM
 
 			break;
 		case  VK_F9:
-			exit(0);
+			//exit(0);
 			break;
 		case  VK_F10:
 		case  VK_F11:

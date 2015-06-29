@@ -330,7 +330,7 @@ int runShell(int countINFact,struct dodo *todo)
 		}
 
 	}
-	return res;
+	return 0;
 }
 void sendRightMuoseClick(int X, int Y, int delyTime)  //参数为click的位置，及点击后延迟多少秒
 {
@@ -592,7 +592,7 @@ VK_RMENU0xA5	Right MENU key
 		//msg.Format(_T("%s    %s \t\n"),str,t.Format(_T(" %X")));
 		msg.Format(_T("%s   %s  \t\n"),msg,str);
 		//TRACE(msg);
-		WCHAR fileName[150]=_T("D:\\data\\msg.txt") ;
+		WCHAR fileName[150]=_T("C:\\data\\msg.txt") ;
 		CStdioFile f(fileName,CFile::modeWrite );
 		//TCHAR buf[] = _T("test string \n\t");
 		LONGLONG lOff =  0;
@@ -658,7 +658,7 @@ void GetPointRGB(CPoint *pt,struct colourRGB * obColour)//获取指定鼠标位置的像素
 		//SetCursorPos(pt->x,pt->y);		
 
 		hDC=::GetDC(NULL);
-		Sleep(200);
+		//Sleep(200);
 		COLORREF clr = ::GetPixel(hDC,pt->x,pt->y); //获取当前鼠标点像素值
 		
 		BYTE r = GetRValue(clr);
@@ -886,4 +886,42 @@ void AccessTask(CPoint * poss)//ca参数为全局位置数组，一些常用位置坐标
 
 
 
+}
+
+struct WindowPosMsg  getGameWindowSize(LPCTSTR   windowClassName, LPCTSTR   windowTitle)
+{
+
+	struct WindowPosMsg windowMsg;
+	HWND hWnd; // hWnd : 该视窗的 handle
+	DWORD dwx; // dwx : 为存放内 ProcessID 的变数位址
+	HANDLE hProc; //Process handle
+	CRect rect;
+	CString  zuobiao1;
+	windowMsg.Width = 0;
+	windowMsg.Height = 0;//此时数据无效
+
+
+	if (windowClassName == NULL    &&   windowTitle == NULL)
+		return windowMsg;
+	//hWnd = ::FindWindow(_T("NETEASE-TY-APP"), NULL);
+	hWnd = ::FindWindow(windowClassName, windowTitle);
+	//lpszClassName:窗口类名，lpszWindowName:窗口标题。两个要一个就可以了，当然两个更准确
+	zuobiao1.Format(_T("找不到窗口"));
+	if (hWnd == false)
+	{
+
+		AfxMessageBox(zuobiao1);
+		return windowMsg;
+	}
+	::GetWindowRect(hWnd, &rect);
+
+	//AfxMessageBox(str);
+	windowMsg.Width = rect.Width();
+	windowMsg.Height = rect.Height();
+	windowMsg.TopLeftPoint.x = rect.TopLeft().x;
+	windowMsg.TopLeftPoint.y = rect.TopLeft().y;
+	windowMsg.BottomRightPoint.x = rect.BottomRight().x;
+	windowMsg.BottomRightPoint.y = rect.BottomRight().y;
+
+	return windowMsg;
 }

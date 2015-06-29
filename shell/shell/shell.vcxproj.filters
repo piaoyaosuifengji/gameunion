@@ -63,6 +63,9 @@
     <ClInclude Include="tianyuShell.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="DialogMsg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shell.cpp">
@@ -87,6 +90,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="tianyuShell.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogMsg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
