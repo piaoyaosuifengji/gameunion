@@ -436,8 +436,8 @@ void ToInPutKeyboardKey(int c,int delyTime)
 		  		keybd_event(c,MapVirtualKey(c,0),0,0);//按下inputKey建。关于为何是0x4d---http://msdn.microsoft.com/zh-cn/library/dd375731(v=vs.85)
 				Sleep(100);
 				keybd_event(c,MapVirtualKey(c,0),KEYEVENTF_KEYUP,0);//按下inputKey建。
-			
-		    Sleep(delyTime);
+				if (delyTime > 0)
+					Sleep(delyTime);
 	  }
 /*
 VK_LBUTTON0x01	Left mouse button
@@ -925,3 +925,23 @@ struct WindowPosMsg  getGameWindowSize(LPCTSTR   windowClassName, LPCTSTR   wind
 
 	return windowMsg;
 }
+
+//zuhe组合键，如SHIFT+f1，则mainKey为f1
+void KeyboardCombination(int mainKey, int auxiliaryKey)
+{
+
+
+	//组合键
+	keybd_event(auxiliaryKey, MapVirtualKey(auxiliaryKey, 0), 0, 0);
+	//Sleep(10);
+	keybd_event(mainKey, MapVirtualKey(mainKey, 0), 0, 0);
+	//Sleep(10);
+	keybd_event(mainKey, MapVirtualKey(mainKey, 0), KEYEVENTF_KEYUP, 0);
+	//Sleep(10);
+	keybd_event(auxiliaryKey, MapVirtualKey(auxiliaryKey, 0), KEYEVENTF_KEYUP, 0);
+
+
+
+
+}
+

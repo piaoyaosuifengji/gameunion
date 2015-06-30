@@ -153,3 +153,7 @@ void AccessTask(CPoint * poss);//ca参数为全局位置数组，一些常用位置坐标
 
 //wu天下无忧任务处理函数
 void tianxiawuyouTaskHandle(void);
+
+
+//zuhe组合键，如SHIFT+f1，则mainKey为f1
+void KeyboardCombination(int mainKey, int auxiliaryKey);

@@ -5,9 +5,10 @@ keyboard: 500:1:49
 keyboard: 500:1:49
 keyboard: 500:1:49
 keyboard: 500:1:49
-keyboard: 500:1:51
+keyboard: 500:1:50
+keyboard: 550:1:51
 keyboard: 100:1:112
 keyboard: 100:1:115
-keyboard: 1000:1:52
+#keyboard: 1000:1:52
 #KeyDown:25000:1:0
 #KeyDown:4000:1:z

@@ -17,6 +17,7 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 {
 	int res = 0;
 	CString fileName;
+	int  firstRun = 1;//循环标志，第一次进入循环结束后修改
 	//标志当前究竟是哪个角色在打。0是未知。1是玲珑，2是DPS
 	struct AttackType *t = (struct AttackType *)pvParam;
 	int autoAttackType = (int)pvParam;
@@ -93,7 +94,7 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 
 	Sleep(2500);
 	char c;
-	int delyTime;
+	int delyTime,i;
 	int continueAutoAttack = 1;
 	int cycle = 0;
 	int need=0;
@@ -197,14 +198,129 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 		5：加血
 		*/
 
+		//如果是奶妈则需要判断是否要单独给队友加血：
+		if (autoAttackType == 1)
+		{ 
+
+			//给自己加一些状态：
+			if (cycle == 1 || cycle == 15)
+			{
+				ToInPutKeyboardKey(56, 0);
+
+			}
+
+			//首先判断有多少队友
+			//第一次运行的时候判断：
+			if (firstRun == 1)
+			{
+				//还是得考查询颜色来判断，显然这是有缺陷的，受环境影响
+				//我擦，其实你并不需要知道到底有多少队友啊，只要默认有4个队友
+				//一个个选过来，残血就加就好了啊.....
+			}
+
+			//exit(0);
+			//挨个判断
+			for (i=1;i<=4;i++)
+			{
+				switch (i)
+				{
+					Sleep(1000);
+					case 1:
+						KeyboardCombination(VK_F1, VK_SHIFT);
+						break;
+					case 2:
+						KeyboardCombination(VK_F2, VK_SHIFT);
+						break;
+					case 3:
+						KeyboardCombination(VK_F3, VK_SHIFT);
+						break;
+					case 4:
+						KeyboardCombination(VK_F4, VK_SHIFT);
+						break;
+					default:break;
 
 
+				}
+				need = ifNeedToGainBlood(Environment, ParameterPoints, windowMsg);
+				{
+
+					//给他足够的奶：
+					ToInPutKeyboardKey(53, 10);
+					ToInPutKeyboardKey(52, 10);
+					ToInPutKeyboardKey(55, 10);
+				}
+				
+
+			}
+			//重新切怪：
+
+			ToInPutKeyboardKey(9, 100);//切怪
+		}
+
+
+		if (autoAttackType == 2)
+		{
+			//给自己加一些状态：
+			if (cycle == 1 || cycle == 15)
+			{
+				ToInPutKeyboardKey(VK_OEM_PLUS, 10);  //加号
+				ToInPutKeyboardKey(VK_OEM_MINUS, 10);//减号
+			}
+
+
+
+		}
+		firstRun = 0;
 	}
 	delete[] p;
 	delete[] todo;
 	return res;
 }
+//判断玲珑是否需要给队友加血，返回0则不用，返回1.2.3.4则分别给相应位置队友加血
+//通过快捷键直接选择队友,我擦
+int ifNeedToGainBlood(CString Environment, CPoint  * ParameterPoints, struct WindowPosMsg windowMsg)
+{
+	int res = 0;
+	CString str;
+	int badcolour = 0;
+	int i = 0;
+	int j = 0;
+	CPoint linPoint;
+	struct colourRGB  obColour;
+	//struct colourRGB  goodcolour[9];
+	CPoint pt;
+	int len = 50;
+	int niceBloodCount = 0;
 
+	//exit(0);
+	if (Environment.Compare(_T("800600")) == 0)
+	{
+		for (i = 0; i < len; i++)
+		{
+			//这里从右向左找，但事实没必要,但是考虑到野怪扣血的血条是
+			//从左向右扣，所以，实际上，你看关注右边半管血条
+			pt.x = windowMsg.TopLeftPoint.x + 400 + i;
+			pt.y = windowMsg.TopLeftPoint.y + 64;
+			//SetCursorPos(pt.x, pt.y);
+			//exit(0);
+			GetPointRGB(&pt, &obColour);
+			//str.Format(_T("(%d,%d,%d)"), obColour.R,obColour.G,obColour.B);
+			//standardOutput( str);
+
+			if ((abs(obColour.R - 200) < 50) && (abs(obColour.G - 12) < 15) && (abs(obColour.B - 8) < 8))
+				niceBloodCount++;
+		}
+		//exit(0);
+		if (niceBloodCount < 25)
+			res = 1;
+	}
+
+
+
+	return res;
+
+
+}
 //只适用切普通怪，对boss无效，但没关系，打boss时不需要切怪
 int ifNeedToFindNewMonster(CString Environment, CPoint  * ParameterPoints, struct WindowPosMsg windowMsg)
 {
