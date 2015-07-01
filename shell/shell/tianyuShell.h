@@ -20,3 +20,5 @@ int ifNeedToRecoveryBlue(CString Environment, CPoint  * ParameterPoints, struct 
 int ifNeedToFindNewMonster(CString Environment, CPoint  * ParameterPoints, struct WindowPosMsg msg);
 //判断玲珑是否需要给队友加血，返回0则不用，返回1.2.3.4则分别给相应位置队友加血
 int ifNeedToGainBlood(CString Environment, CPoint  * ParameterPoints, struct WindowPosMsg msg);
+
+DWORD WINAPI dandiancaijiForTianYu(PVOID pvParam);

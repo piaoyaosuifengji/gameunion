@@ -168,6 +168,7 @@ CshellDlg::CshellDlg(CWnd* pParent /*=NULL*/)
 void CshellDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_TAB1, tabCtrlForCaiJi);
 }
 
 BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
@@ -186,6 +187,9 @@ BEGIN_MESSAGE_MAP(CshellDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON10, &CshellDlg::OnBnClickedButton10)
 	ON_BN_CLICKED(IDC_BUTTON11, &CshellDlg::OnBnClickedButton11)
 	ON_MESSAGE(WM_HOTKEY, OnHotKey)
+	ON_BN_CLICKED(IDC_BUTTON12, &CshellDlg::OnBnClickedButton12)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CshellDlg::OnTcnSelchangeTab1)
+	ON_BN_CLICKED(IDC_BUTTON13, &CshellDlg::OnBnClickedButton13)
 END_MESSAGE_MAP()
 
 
@@ -228,6 +232,41 @@ BOOL CshellDlg::OnInitDialog()
 	//RegisterHotKey(m_hWnd, 1001, MOD_ALT, VK_F8);//用Alt+f8作为快捷键，第二个参数必须系统唯一
 	RegisterHotKey(m_hWnd, 1001, 0, VK_F2);//用f8作为快捷键，第二个参数必须系统唯一
 	RegisterHotKey(m_hWnd, 1002, 0, VK_F3);//用f8作为快捷键，第二个参数必须系统唯一
+
+
+	//为Tab Control增加两个页面 
+	tabCtrlForCaiJi.InsertItem(0, _T("one"));
+	tabCtrlForCaiJi.InsertItem(1, _T("two"));
+
+	//创建两个对话框   
+	m_page1.Create(IDD_DIALOG1, &tabCtrlForCaiJi);
+	m_page2.Create(IDD_DIALOG2, &tabCtrlForCaiJi);
+
+	//设定在Tab内显示的范围   
+	CRect rc;
+	tabCtrlForCaiJi.GetClientRect(rc);
+	rc.top += 22;
+
+	//rc.bottom -= 0;
+	//rc.left += 10;
+	//rc.right -= 10;
+	m_page1.MoveWindow(&rc);
+	m_page2.MoveWindow(&rc);
+
+	//把对话框对象指针保存起来   
+	pDialog[0] = &m_page1;
+	pDialog[1] = &m_page2;
+
+	//显示初始页面   
+	
+	pDialog[1]->ShowWindow(SW_HIDE);
+	pDialog[0]->ShowWindow(SW_SHOW);
+
+	//保存当前选择   
+	m_CurSelTab = 0;
+
+
+
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -612,5 +651,42 @@ void CshellDlg::OnBnClickedButton11()
 	//运行刷怪脚本：
 	DWORD dwTheadID;
 	int x = 2;
+	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLongZuDui, (PVOID)x, 0, &dwTheadID);
+}
+
+
+void CshellDlg::OnBnClickedButton12()
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+	//运行刷怪脚本：
+	DWORD dwTheadID;
+	int x = 2;
+	HANDLE htherad = CreateThread(NULL, 0, dandiancaijiForTianYu, (PVOID)x, 0, &dwTheadID);
+}
+
+
+void CshellDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+	//把当前的页面隐藏起来   
+	pDialog[m_CurSelTab]->ShowWindow(SW_HIDE);
+
+	//得到新的页面索引   
+	m_CurSelTab = tabCtrlForCaiJi.GetCurSel();
+
+	//把新的页面显示出来   
+	pDialog[m_CurSelTab]->ShowWindow(SW_SHOW);
+	*pResult = 0;
+
+}
+
+
+void CshellDlg::OnBnClickedButton13()
+{
+	//运行刷怪脚本：
+	DWORD dwTheadID;
+	int x = 3;
 	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLongZuDui, (PVOID)x, 0, &dwTheadID);
 }

@@ -113,6 +113,8 @@
     <ClInclude Include="HookDll.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="operating.h" />
+    <ClInclude Include="Page1.h" />
+    <ClInclude Include="Page2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="shell.h" />
     <ClInclude Include="shellDlg.h" />
@@ -127,6 +129,8 @@
     <ClCompile Include="DialogMsg.cpp" />
     <ClCompile Include="fileoperating.cpp" />
     <ClCompile Include="operating.cpp" />
+    <ClCompile Include="Page1.cpp" />
+    <ClCompile Include="Page2.cpp" />
     <ClCompile Include="shell.cpp" />
     <ClCompile Include="shellDlg.cpp" />
     <ClCompile Include="stdafx.cpp">

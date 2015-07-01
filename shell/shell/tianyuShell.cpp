@@ -12,13 +12,27 @@ tianyuShell::tianyuShell()
 tianyuShell::~tianyuShell()
 {
 }
+DWORD WINAPI dandiancaijiForTianYu(PVOID pvParam)
+{
+	int res = 0;
+	int continueAutoAttack = 1;
+	Sleep(5000);
+	while (continueAutoAttack)
+	{
 
+
+		ToInPutKeyboardKey(0x46, 100);//捡东西
+		Sleep(7000);
+
+	}
+	return res;
+}
 DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 {
 	int res = 0;
 	CString fileName;
 	int  firstRun = 1;//循环标志，第一次进入循环结束后修改
-	//标志当前究竟是哪个角色在打。0是未知。1是玲珑，2是DPS
+	//标志当前究竟是哪个角色在打。0是未知。1是玲珑，2是玉虚，2是炎天
 	struct AttackType *t = (struct AttackType *)pvParam;
 	int autoAttackType = (int)pvParam;
 	//int cccc=(int)autoAttackType;
@@ -29,6 +43,10 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 	else if (autoAttackType == 2)
 	{
 		fileName.Format(_T("C:\\data\\tianyu\\autoAttackforDPS.txt"));
+	}
+	else if (autoAttackType == 3)
+	{
+		fileName.Format(_T("C:\\data\\tianyu\\yantian.txt"));
 	}
 	else{
 		CString  zuobiao1(_T(" wrong autoAttackType"));
@@ -121,7 +139,7 @@ DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam)
 		if (qieguai >= 10)	
 			qieguai = 1;
 		if (qieguai == 10)
-			ToInPutChar('f', 50);;//捡东西
+			ToInPutKeyboardKey(0x46, 100);//捡东西
 
 		qieguai++;
 		//ruguo如果是峨眉那么美循环5次可以加一下血

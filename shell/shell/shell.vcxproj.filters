@@ -66,6 +66,12 @@
     <ClInclude Include="DialogMsg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Page1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Page2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shell.cpp">
@@ -93,6 +99,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DialogMsg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Page1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Page2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,6 +7,9 @@
 
 #include "resource.h"		// main symbols
 #include "HookDll.h"
+#include "afxcmn.h"
+#include "Page1.h"
+#include "Page2.h"
 class _declspec(dllimport) CKeyHook;
 #pragma comment(lib,"HookDll.lib")
 
@@ -28,6 +31,10 @@ private:
 	CHookDll *m_hook;
 	HINSTANCE glhInstance;
 
+	int m_CurSelTab;
+	CPage1 m_page1;
+	CPage2 m_page2;
+	CDialog* pDialog[2];  //用来保存对话框对象指针
 // 实现
 protected:
 	HICON m_hIcon;
@@ -51,6 +58,10 @@ public:
 	afx_msg void OnBnClickedButton10();
 	afx_msg void OnBnClickedButton11();
 	afx_msg LRESULT OnHotKey(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBnClickedButton12();
+	CTabCtrl tabCtrlForCaiJi;
+	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedButton13();
 };
 
 /*
