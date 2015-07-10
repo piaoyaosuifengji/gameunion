@@ -687,6 +687,6 @@ void CshellDlg::OnBnClickedButton13()
 {
 	//‘À––À¢π÷Ω≈±æ£∫
 	DWORD dwTheadID;
-	int x = 3;
-	HANDLE htherad = CreateThread(NULL, 0, autoAttack_LingLongZuDui, (PVOID)x, 0, &dwTheadID);
+	int x = 1;
+	HANDLE htherad = CreateThread(NULL, 0, autoAttack_TianDao, (PVOID)x, 0, &dwTheadID);
 }

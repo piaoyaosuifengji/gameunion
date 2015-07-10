@@ -12,6 +12,283 @@ tianyuShell::tianyuShell()
 tianyuShell::~tianyuShell()
 {
 }
+
+DWORD WINAPI autoAttack_TianDao(PVOID pvParam)
+{
+	int res = 0;
+	CString fileName;
+	int  firstRun = 1;//循环标志，第一次进入循环结束后修改
+	//标志当前究竟是哪个角色在打。0是未知。1是天香，2是，
+	struct AttackType *t = (struct AttackType *)pvParam;
+	int autoAttackType = (int)pvParam;
+	//int cccc=(int)autoAttackType;
+	if (autoAttackType == 1)
+	{
+		fileName.Format(_T("C:\\data\\tiandao\\autoAttackTianXiang.txt"));
+	}
+	//else if (autoAttackType == 2)
+	//{
+	//	fileName.Format(_T("C:\\data\\tianyu\\autoAttackforDPS.txt"));
+	//}
+	//else if (autoAttackType == 3)
+	//{
+	//	fileName.Format(_T("C:\\data\\tianyu\\yantian.txt"));
+	//}
+	else{
+		CString  zuobiao1(_T(" wrong autoAttackType"));
+		AfxMessageBox(zuobiao1);
+		return res;
+	}
+	//读取shell文本
+
+	int count = lineCount(fileName);
+	struct operat *p = new struct operat[count];
+	int countINFact = ReadTxtToGetShellByName2(fileName, count, p);
+	//分析命令
+	//就是得出该执行的操作，以及相应的参数
+	struct dodo *todo = new struct dodo[countINFact];
+	res = haveToDo(countINFact, p, todo);
+	//最后检查操作
+	if (res <= 0)
+	{
+		CString  zuobiao1(_T("some wrong"));
+		AfxMessageBox(zuobiao1);
+		//int res=runShell( countINFact, todo);
+
+	}
+	int width = GetSystemMetrics(SM_CXSCREEN);
+	int height = GetSystemMetrics(SM_CYSCREEN);
+
+	CString fileName2("C:\\data\\1440900\\zuobiao.txt");
+	CPoint  *ParameterPoints;
+	CString Environment = for1440and900;
+	//首先判断游戏窗口大小，如果是800*600就不要管pc的分辨率了
+	//实际得到的是816*638
+	struct WindowPosMsg  windowMsg = getGameWindowSize(_T("GEMAINWINDOWCLASS"), NULL);
+
+	//SetCursorPos(windowMsg.TopLeftPoint.x + 8, windowMsg.TopLeftPoint.y+30);
+	#ifdef  TianDaoDeBug11
+	{
+
+		CString  zuobiao1(_T("some wrong"));
+		zuobiao1.Format(_T("%d,%d"), windowMsg.Width, windowMsg.Height);
+		AfxMessageBox(zuobiao1);
+
+		exit(0);
+	}
+	#endif
+
+	if ((windowMsg.Width - 800)<50 && (windowMsg.Height - 600)<70)
+	{
+
+		fileName2.Format(_T("C:\\data\\800600\\zuobiao.txt"));
+		ParameterPoints = ReadTxtToGetPoints(fileName2);
+		Environment = for800and600;
+
+	}
+	else if ((width == 1440 && height == 900) || (width == 1440 && height == 860) )
+	{
+		fileName2.Format(_T("C:\\data\\1440900\\zuobiao.txt"));
+		ParameterPoints = ReadTxtToGetPoints(fileName2);
+		Environment = for1440and900;
+	}
+	else if (width == 1280 && height == 800)
+	{
+		fileName2.Format(_T("C:\\data\\1280800\\zuobiao.txt"));
+		ParameterPoints = ReadTxtToGetPoints(fileName2);
+		Environment = for1280and800;
+	}
+	else if (width == 1280 && height == 720)
+	{
+		fileName2.Format(_T("C:\\data\\1280720\\zuobiao.txt"));
+		ParameterPoints = ReadTxtToGetPoints(fileName2);
+		Environment = for1280and720;
+	}
+	//else
+	//	return res;
+
+	Sleep(2500);
+	char c;
+	int delyTime, i;
+	int continueAutoAttack = 1;
+	int cycle = 0;
+	int need = 0;
+	int  qieguai = 1;
+	int addBlueFlag = 0;
+
+
+	//AfxGetApp()->LoadIcon(IDI_ICON1);
+	//SetIcon(m_hIcon, true);
+	//SetIcon(m_hIcon, false);
+	if (ParameterPoints == NULL || windowMsg.Height == 0 || windowMsg.Width == 0)
+	{
+
+		OutputDebugString(_T("some wrong \n"));
+		return res;
+	}
+
+	ToInPutKeyboardKey(9, 100);//切怪
+	while (continueAutoAttack)
+	{
+		cycle++;
+		if (cycle >= 30)
+			cycle = 0;
+		if (qieguai >= 10)
+			qieguai = 1;
+		//if (qieguai == 10)
+			//ToInPutKeyboardKey(0x46, 100);//捡东西
+
+		qieguai++;
+
+		/*
+		//3：判断是否打死了怪
+		*/
+
+		need = ifNeedToFindNewMonster(Environment, ParameterPoints, windowMsg);
+		//if (need == 1)
+		{
+			ToInPutKeyboardKey(9, 100);//切怪
+			OutputDebugString(_T("切怪 \n"));
+
+		}
+		res = runShell(countINFact, todo);
+		OutputDebugString(_T("fight over \n"));
+
+		//addBlueFlag
+		//有时候会出现以为，导致错误加蓝，为了避免这种情况，所以这里需要连续俩次发现需要加蓝才调用加蓝函数
+		//need = ifNeedToRecoveryBlue(Environment, ParameterPoints, windowMsg);
+		if (need == 1 && addBlueFlag == 1)
+		{
+			addBlueFlag = 0;
+			OutputDebugString(_T("need  add  Blue \n"));
+			//AfxGetMainWnd()->SetWindowText(_T("need  add  blood"));
+			ToInPutKeyboardKey(57, 100);//默认9回蓝
+		}
+		else if (need == 1 && addBlueFlag == 0)
+			addBlueFlag = 1;
+		else
+		{
+			OutputDebugString(_T("do not need  add  Blue \n"));
+			addBlueFlag = 0;
+		}
+
+
+
+		//need = ifNeedToRecoveryBlood(Environment, ParameterPoints, windowMsg);
+		if (need == 1)
+		{
+			OutputDebugString(_T("need  add  blood \n"));
+			//AfxGetMainWnd()->SetWindowText(_T("need  add  blood"));
+
+			if (autoAttackType == 1)//如果是奶妈按3回血
+			{
+				ToInPutKeyboardKey(52, 100);//默认0回血
+			}
+			else
+				ToInPutKeyboardKey(48, 100);//默认0回血
+			//ToInPutKeyboardKey(51, 100);//默认0回血
+		}
+		else OutputDebugString(_T("do not need  add  blood \n"));
+
+		/*
+		ifNeedToHuiXue的思路：
+		1：找到游戏的窗口
+		2:确定血条位置
+		方案：a:粗糙的指定坐标，简单而有效，但是局限性太大，不过看起来还是得使用这种办法了
+		但是你必须指定：开启次功能时必须是最大屏模式，左右无边框。
+		b：通过寻找控件的方式，值得一试---暂时失败
+		c：通过查找图像的方式，难度大
+		3：确定加血的标准，什么情况下加血
+		4：确定加血的对象：给自己还是给别人（奶妈特有）
+		5：加血
+		*/
+
+		//如果是奶妈则需要判断是否要单独给队友加血：
+		if (autoAttackType == 1)
+		{
+
+			//给自己加一些状态：
+			if (cycle == 1 || cycle == 15)
+			{
+				//ToInPutKeyboardKey(56, 0);
+
+			}
+
+			//首先判断有多少队友
+			//第一次运行的时候判断：
+			if (firstRun == 1)
+			{
+				//还是得考查询颜色来判断，显然这是有缺陷的，受环境影响
+				//我擦，其实你并不需要知道到底有多少队友啊，只要默认有4个队友
+				//一个个选过来，残血就加就好了啊.....
+			}
+
+			//exit(0);
+			//挨个判断
+			/*
+			for (i = 1; i <= 4; i++)
+			{
+				switch (i)
+				{
+					Sleep(1000);
+				case 1:
+					KeyboardCombination(VK_F1, VK_SHIFT);
+					break;
+				case 2:
+					KeyboardCombination(VK_F2, VK_SHIFT);
+					break;
+				case 3:
+					KeyboardCombination(VK_F3, VK_SHIFT);
+					break;
+				case 4:
+					KeyboardCombination(VK_F4, VK_SHIFT);
+					break;
+				default:break;
+
+
+				}
+				need = ifNeedToGainBlood(Environment, ParameterPoints, windowMsg);
+				{
+
+					//给他足够的奶：
+					ToInPutKeyboardKey(53, 10);
+					ToInPutKeyboardKey(52, 10);
+					ToInPutKeyboardKey(55, 10);
+				}
+
+
+			}
+			*/
+			//重新切怪：
+
+			ToInPutKeyboardKey(9, 100);//切怪
+		}
+
+
+		if (autoAttackType == 2)
+		{
+			//给自己加一些状态：
+			if (cycle == 1 || cycle == 15)
+			{
+				ToInPutKeyboardKey(VK_OEM_PLUS, 10);  //加号
+				ToInPutKeyboardKey(VK_OEM_MINUS, 10);//减号
+			}
+
+
+
+		}
+		firstRun = 0;
+	}
+	delete[] p;
+	delete[] todo;
+	return res;
+}
+
+
+
+
+
+
 DWORD WINAPI dandiancaijiForTianYu(PVOID pvParam)
 {
 	int res = 0;
@@ -378,6 +655,34 @@ int ifNeedToFindNewMonster(CString Environment, CPoint  * ParameterPoints, struc
 		if (niceBloodCount < 5)
 			res = 1;
 	}
+
+	if (Environment.Compare(_T("1440900")) == 0)
+	{
+		for (i = 0; i < len; i++)
+		{
+			//这里从右向左找，但事实没必要,但是考虑到野怪扣血的血条是
+			//从左向右扣，所以，实际上，你看关注右边半管血条
+			pt.x = windowMsg.TopLeftPoint.x + 446 + i;
+			pt.y = windowMsg.TopLeftPoint.y + 64;
+			//SetCursorPos(pt.x, pt.y);
+			//SetCursorPos(windowMsg.TopLeftPoint.x + 145+50, windowMsg.TopLeftPoint.y + 66);
+			//exit(0);
+			GetPointRGB(&pt, &obColour);
+			//str.Format(_T("(%d,%d,%d)"), obColour.R,obColour.G,obColour.B);
+			//standardOutput( str);
+
+			if ((abs(obColour.R - 200) < 50) && (abs(obColour.G - 12) < 15) && (abs(obColour.B - 8) < 8))
+				niceBloodCount++;
+		}
+		//exit(0);
+		if (niceBloodCount < 5)
+			res = 1;
+	}
+
+
+
+
+
 
 
 

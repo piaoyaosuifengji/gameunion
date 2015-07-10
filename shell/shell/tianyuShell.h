@@ -10,6 +10,9 @@ public:
 
 //#define TianYuDeBug   1
 //#define TianYuDeBug2   2
+ #define TianDaoDeBug1   1
+
+DWORD WINAPI autoAttack_TianDao(PVOID pvParam);
 DWORD WINAPI autoAttack_LingLongZuDui(PVOID pvParam);
 DWORD WINAPI autoAttack_LingLong(PVOID pvParam);
 //判断是否需要回血
